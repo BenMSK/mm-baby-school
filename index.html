@@ -65,6 +65,7 @@ small,.small{font-size:.85rem}
 .brand .ico{width:40px;height:40px}
 .brand h1{font-size:1.35rem;line-height:1.1}
 .brand .sub{font-size:.78rem;color:var(--muted);line-height:1.2}
+.brand .ver{font-family:var(--f-display);color:var(--peach-ink);white-space:nowrap}
 .row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .row .sp{flex:1}
 .tabs{display:flex;gap:4px;background:var(--soft);padding:4px;border-radius:999px}
@@ -248,11 +249,12 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
 <symbol id="i-home" viewBox="0 0 64 64"><path d="M8 32L32 12l24 20" style="fill:none;stroke:var(--peach);stroke-width:4;stroke-linecap:round;stroke-linejoin:round"/><path d="M14 28v26h36V28" style="fill:var(--soft);stroke:var(--peach);stroke-width:3"/><rect x="27" y="38" width="10" height="16" rx="2" style="fill:var(--peach)"/></symbol>
 <symbol id="i-flag" viewBox="0 0 64 64"><path d="M14 8v48" style="stroke:var(--ink);stroke-width:4;stroke-linecap:round"/><path d="M16 10h34l-8 11 8 11H16z" style="fill:var(--rose)"/></symbol>
 <symbol id="i-plane" viewBox="0 0 64 64"><path d="M8 36l48-20-16 26-10-6-12 10 4-12z" style="fill:var(--sky)"/><path d="M30 36l26-20" style="stroke:var(--surface);stroke-width:2"/></symbol>
+<symbol id="i-chat" viewBox="0 0 64 64"><path d="M12 12h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H30l-12 10V46h-6a6 6 0 0 1-6-6V18a6 6 0 0 1 6-6z" style="fill:var(--sky)"/><circle cx="22" cy="29" r="3" style="fill:#fff"/><circle cx="32" cy="29" r="3" style="fill:#fff"/><circle cx="42" cy="29" r="3" style="fill:#fff"/></symbol>
 <symbol id="i-cal" viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="42" rx="6" style="fill:var(--surface);stroke:var(--lilac);stroke-width:2.5"/><rect x="10" y="14" width="44" height="12" rx="6" style="fill:var(--lilac)"/><path d="M22 8v10M42 8v10" style="stroke:var(--ink);stroke-width:3;stroke-linecap:round"/><circle cx="24" cy="38" r="3" style="fill:var(--peach)"/><circle cx="34" cy="38" r="3" style="fill:var(--lilac)"/><circle cx="44" cy="38" r="3" style="fill:var(--lilac)"/><circle cx="24" cy="48" r="3" style="fill:var(--lilac)"/></symbol>
 </defs></svg>
 <header class="top"><div class="wrap">
   <div class="row">
-    <div class="brand"><svg class="ico" aria-hidden="true"><use href="#i-baby"/></svg><div><h1>M&amp;M 육아 학교</h1><div class="sub">아빠 할 일 · 2주 완성 코스 · 생후 0–12개월</div></div></div>
+    <div class="brand"><svg class="ico" aria-hidden="true"><use href="#i-baby"/></svg><div><h1>M&amp;M 육아 학교</h1><div class="sub">아빠 할 일 · 2주 코스 · Kaiser 영어 · 생후 0–12개월 · <span class="ver">v1.1 (2026-10-19)</span></div></div></div>
     <span class="sp"></span>
     <label class="small muted">나는 <select id="who" aria-label="기록자"><option value="">선택</option><option value="아빠">아빠</option><option value="엄마">엄마</option></select></label>
     <button type="button" id="theme" class="btn" aria-label="화면 모드 전환"><span class="em">🌙</span><span class="lbl">다크</span></button>
@@ -260,10 +262,11 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
   <div class="tabs" role="tablist">
     <button type="button" class="tab" role="tab" data-tab="dad" aria-selected="true"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>아빠 할 일</button>
     <button type="button" class="tab" role="tab" data-tab="course" aria-selected="false"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg>육아 2주 코스</button>
+    <button type="button" class="tab" role="tab" data-tab="english" aria-selected="false"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Kaiser 영어</button>
   </div>
 </div></header>
 <main class="wrap">
-<div id="pane-dad" class="pane">
+<div id="pane-dad" class="pane" data-pane="dad">
 <section class="hero">
   <div>
     <div class="eyebrow">우리 아기</div>
@@ -379,7 +382,7 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     <li class="ck"><input type="checkbox" class="cb" id="c-f6" data-id="f6"><div><label for="c-f6" class="t">한국 방문 때 주민등록번호 받기 (30일 이상 체류 시 주민센터)</label><div class="d"><p>영사관 출생신고로는 주민번호 뒷자리가 안 나옵니다. 아기와 함께 입국해 주민센터에 등록할 때 부여. 등록기준지를 기억해 두세요. <a class="src kr" href="https://overseas.mofa.go.kr/dk-ko/brd/m_7139/view.do?seq=1335663&amp;page=1">주민번호 안내(주덴마크대사관)</a></p></div><div class="by"></div></div></li>
   </ul>
 </section></div>
-<div id="pane-course" class="pane" hidden>
+<div id="pane-course" class="pane" data-pane="course" hidden>
 <div class="daynav" role="tablist" aria-label="수업 선택">
   <button type="button" class="dchip" data-go="0">코스 홈</button>
   <button type="button" class="dchip" data-go="1" data-day-done="1">Day 1</button><button type="button" class="dchip" data-go="2" data-day-done="2">Day 2</button><button type="button" class="dchip" data-go="3" data-day-done="3">Day 3</button><button type="button" class="dchip" data-go="4" data-day-done="4">Day 4</button><button type="button" class="dchip" data-go="5" data-day-done="5">Day 5</button><button type="button" class="dchip" data-go="6" data-day-done="6">Day 6</button><button type="button" class="dchip" data-go="7" data-day-done="7">Day 7</button><button type="button" class="dchip" data-go="8" data-day-done="8">Day 8</button><button type="button" class="dchip" data-go="9" data-day-done="9">Day 9</button><button type="button" class="dchip" data-go="10" data-day-done="10">Day 10</button><button type="button" class="dchip" data-go="11" data-day-done="11">Day 11</button><button type="button" class="dchip" data-go="12" data-day-done="12">Day 12</button><button type="button" class="dchip" data-go="13" data-day-done="13">Day 13</button><button type="button" class="dchip" data-go="14" data-day-done="14">Day 14</button>
@@ -2435,9 +2438,204 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
 
   <div class="done-row"><button type="button" class="done-btn" data-day="13">Day 13 공부 완료</button><div class="nav2"><button type="button" class="btn" data-go="12">← Day 12</button><button type="button" class="btn" data-go="14">Day 14 →</button></div></div>
 </section></div>
+<div id="pane-english" class="pane" data-pane="english" hidden>
+<section class="hero">
+  <div>
+    <div class="eyebrow">Kaiser에서 쓰는 영어</div>
+    <div class="big">이렇게 말하면 됩니다</div>
+    <p class="lead">상황별로 그대로 읽어도 되는 문장입니다. 미국 병원에서는 <strong>숫자(체온은 화씨, 시간, 기저귀 개수)</strong>와 <strong>"I'm the father / I'm the mother"</strong>를 먼저 말하면 대화가 빨라집니다. 통역은 Kaiser가 무료로 제공하니 막히면 "Korean interpreter, please" 한마디면 됩니다.</p>
+  </div>
+  <svg class="art" aria-hidden="true"><use href="#i-chat"/></svg>
+</section>
+
+<section class="box tip">
+  <h3>먼저 외울 네 문장</h3>
+  <ul>
+    <li><strong>Could we have a Korean interpreter, please?</strong><br><span class="small muted">한국어 통역을 부탁드려도 될까요? (전화·대면 모두 무료. 동의서 서명 전엔 꼭)</span></li>
+    <li><strong>I'm calling about my newborn. She's [10] days old. Her rectal temperature is [100.6] Fahrenheit.</strong><br><span class="small muted">신생아 때문에 전화드립니다. 생후 10일이고 직장 체온이 화씨 100.6도입니다.</span></li>
+    <li><strong>Should I bring her in now, or can it wait until morning?</strong><br><span class="small muted">지금 데려가야 하나요, 아침까지 기다려도 되나요?</span></li>
+    <li><strong>Can you show me how to do it? I'd like to try it myself while you watch.</strong><br><span class="small muted">어떻게 하는지 보여 주세요. 보시는 앞에서 제가 직접 해 보고 싶어요. (목욕·속싸개·기저귀·탯줄)</span></li>
+  </ul>
+</section>
+
+<section class="day" style="margin-bottom:16px">
+  <h3 style="margin-top:0">1. 병원 입원 중 (Labor &amp; Delivery → 산후 병동)</h3>
+  <h4>도착·접수</h4>
+  <ul>
+    <li><strong>Hi, my wife is in labor. Her contractions are about [4] minutes apart. We called the advice nurse and they told us to come in.</strong><br><span class="small muted">아내가 진통 중입니다. 진통 간격이 약 4분이고, advice nurse가 오라고 했습니다.</span></li>
+    <li><strong>Her water broke at [2 a.m.]. The fluid was clear.</strong> / <strong>It was greenish.</strong><br><span class="small muted">새벽 2시에 양수가 터졌습니다. 맑았어요 / 녹색이었어요.</span></li>
+    <li><strong>She's a Kaiser member. Here's her member ID card and her photo ID.</strong><br><span class="small muted">Kaiser 회원입니다. 회원증과 신분증입니다.</span></li>
+    <li><strong>Is it okay if I stay overnight? Where can I sleep?</strong><br><span class="small muted">밤에 같이 있어도 되나요? 어디서 자면 되나요?</span></li>
+  </ul>
+  <h4>분만 전후 요청</h4>
+  <ul>
+    <li><strong>We'd like skin-to-skin right after birth. If my wife can't, I'd like to do it.</strong><br><span class="small muted">출생 직후 피부접촉을 원합니다. 아내가 못 하면 제가 하고 싶어요.</span></li>
+    <li><strong>Can I cut the cord?</strong> / <strong>Can we do delayed cord clamping?</strong><br><span class="small muted">탯줄을 제가 잘라도 될까요? / 탯줄을 늦게 묶어 주실 수 있나요?</span></li>
+    <li><strong>She'd like the epidural now.</strong> / <strong>Her pain is a [7] out of 10. Can she have something for it?</strong><br><span class="small muted">지금 무통주사를 원합니다. / 통증이 10점 만점에 7점이에요. 진통제 가능한가요?</span></li>
+    <li><strong>Could you explain what this consent form is for before we sign?</strong><br><span class="small muted">서명 전에 이 동의서가 무엇인지 설명해 주시겠어요?</span></li>
+  </ul>
+  <h4>신생아 처치·검사</h4>
+  <ul>
+    <li><strong>Yes, we want the vitamin K shot, the eye ointment, and the hepatitis B birth dose.</strong><br><span class="small muted">비타민K 주사, 안연고, B형간염 출생 접종 모두 원합니다.</span></li>
+    <li><strong>Is the RSV antibody shot, nirsevimab (Beyfortus), given here before discharge? Our baby was born in December.</strong><br><span class="small muted">RSV 항체주사(니르세비맙)를 퇴원 전에 여기서 맞나요? 12월에 태어났어요.</span></li>
+    <li><strong>Did my wife get the Tdap and the RSV vaccine (Abrysvo) during pregnancy? I'd like to double-check.</strong><br><span class="small muted">아내가 임신 중 Tdap과 RSV 백신을 맞았는지 확인하고 싶습니다.</span></li>
+    <li><strong>What was the bilirubin level, and when should it be rechecked?</strong> / <strong>Does he need phototherapy?</strong><br><span class="small muted">빌리루빈 수치가 얼마였고 언제 재검하나요? / 광선치료가 필요한가요?</span></li>
+    <li><strong>Did the baby pass the hearing screen?</strong> / <strong>When will we get the newborn screening results?</strong><br><span class="small muted">청력검사 통과했나요? / 신생아 선별검사 결과는 언제 나오나요?</span></li>
+    <li><strong>We've decided not to circumcise.</strong> / <strong>We'd like to schedule the circumcision before discharge.</strong><br><span class="small muted">포경수술은 하지 않기로 했습니다. / 퇴원 전에 포경수술 일정을 잡고 싶어요.</span></li>
+    <li><strong>How much weight has she lost since birth? Is that within the normal range?</strong><br><span class="small muted">출생 후 체중이 얼마나 빠졌나요? 정상 범위인가요?</span></li>
+  </ul>
+  <h4>수유·돌보기 배우기</h4>
+  <ul>
+    <li><strong>Could a lactation consultant come see us? We're having trouble with the latch.</strong><br><span class="small muted">수유 상담사가 와 주실 수 있나요? 젖물리기가 잘 안 됩니다.</span></li>
+    <li><strong>Can you show us how to hand-express colostrum?</strong> / <strong>Can we use a hospital pump while we're here?</strong><br><span class="small muted">초유 손 유축법을 보여 주세요. / 입원 중 병원 유축기를 쓸 수 있나요?</span></li>
+    <li><strong>Can you show me how to swaddle / bathe / change the diaper / care for the cord stump?</strong><br><span class="small muted">속싸개 / 목욕 / 기저귀 / 탯줄 관리하는 법을 보여 주세요.</span></li>
+    <li><strong>How many wet diapers should we expect on day [3]?</strong><br><span class="small muted">생후 3일에 젖은 기저귀가 몇 개 나와야 하나요?</span></li>
+    <li><strong>She seems to be feeding every hour. Is that normal?</strong><br><span class="small muted">한 시간마다 먹으려 해요. 정상인가요?</span></li>
+  </ul>
+  <h4>서류·퇴원</h4>
+  <ul>
+    <li><strong>We'd like to fill out the birth certificate worksheet. Could you check the spelling of the names with us?</strong><br><span class="small muted">출생증명서 워크시트를 작성하려 합니다. 이름 철자를 같이 확인해 주시겠어요?</span></li>
+    <li><strong>Yes, we want to apply for the baby's Social Security number through the hospital.</strong><br><span class="small muted">네, 병원을 통해 아기 SSN을 신청하겠습니다.</span></li>
+    <li><strong>How do we add the baby to our Kaiser plan? Is there a form we fill out here?</strong> / <strong>What's the baby's medical record number?</strong><br><span class="small muted">아기를 Kaiser 보험에 어떻게 추가하나요? 여기서 쓰는 양식이 있나요? / 아기 MRN(의무기록번호)이 뭔가요?</span></li>
+    <li><strong>Could you book the first pediatric visit before we leave? Which pediatrician will we see?</strong><br><span class="small muted">퇴원 전에 첫 소아과 예약을 잡아 주시겠어요? 어느 의사를 보게 되나요?</span></li>
+    <li><strong>Can we also schedule her postpartum visit and a lactation visit?</strong><br><span class="small muted">아내 산후 검진과 수유 상담 예약도 잡을 수 있나요?</span></li>
+    <li><strong>What's the number for the 24-hour advice nurse? Can you write it down for me?</strong><br><span class="small muted">24시간 advice nurse 번호가 뭔가요? 적어 주시겠어요?</span></li>
+    <li><strong>Can we take the extra diapers, wipes, the bulb syringe, and the peri bottle home?</strong><br><span class="small muted">남은 기저귀·물티슈·콧물흡입기·페리보틀을 가져가도 되나요?</span></li>
+    <li><strong>Could we get a copy of the discharge summary and the hospital birth record? We need it for the Paid Family Leave claim.</strong><br><span class="small muted">퇴원 요약과 병원 출생기록 사본을 받을 수 있나요? PFL 청구에 필요합니다.</span></li>
+  </ul>
+</section>
+
+<section class="day" style="margin-bottom:16px">
+  <h3 style="margin-top:0">2. Advice nurse 전화 (24시간)</h3>
+  <div class="box note"><h4>전화 순서</h4><ol><li>누구: <strong>I'm the father / mother.</strong></li><li>아기: 이름, 생년월일, MRN</li><li>핵심 숫자: 체온(화씨, 재는 법), 언제부터, 마지막 수유, 지난 6~24시간 기저귀 수</li><li>질문: 지금 가야 하나요?</li></ol></div>
+  <ul>
+    <li><strong>Hi, I'm calling about my baby, [name], date of birth December 28th. I'm the father. Her medical record number is [...].</strong><br><span class="small muted">아기 [이름], 생년월일 12월 28일 때문에 전화드립니다. 아빠입니다. MRN은 …입니다.</span></li>
+    <li><strong>Her rectal temperature is [100.6] Fahrenheit. I took it [20] minutes ago.</strong><br><span class="small muted">직장 체온이 화씨 100.6도이고 20분 전에 쟀습니다.</span></li>
+    <li><strong>He's [3] weeks old and his temperature is [97.2]. He feels cold and he's sleepy.</strong><br><span class="small muted">생후 3주이고 체온이 97.2도입니다. 몸이 차고 처져요. (저체온도 전화 대상)</span></li>
+    <li><strong>She's feeding less than usual. She's had only [4] wet diapers in the last 24 hours, and no tears when she cries.</strong><br><span class="small muted">평소보다 덜 먹고, 지난 24시간 젖은 기저귀가 4개뿐이고, 울 때 눈물이 없어요.</span></li>
+    <li><strong>He's breathing fast, about [70] breaths a minute, and I can see the skin pulling in between his ribs.</strong><br><span class="small muted">숨이 빨라서 분당 70회 정도이고, 갈비뼈 사이 피부가 함몰돼요.</span></li>
+    <li><strong>He's making a grunting sound when he breathes, and his nostrils are flaring.</strong><br><span class="small muted">숨 쉴 때 끙끙 소리가 나고 콧구멍이 벌렁거려요.</span></li>
+    <li><strong>His lips look a little blue.</strong> / <strong>He stopped breathing for about 15 seconds.</strong><br><span class="small muted">입술이 약간 파래요. / 15초 정도 숨을 안 쉬었어요. (이건 911)</span></li>
+    <li><strong>She vomited twice after feeding, and it was forceful, like projectile vomiting.</strong> / <strong>The vomit was green.</strong> / <strong>There was blood in it.</strong><br><span class="small muted">수유 후 두 번 토했는데 분수처럼 세게 나왔어요. / 토가 녹색이었어요. / 피가 섞였어요.</span></li>
+    <li><strong>It's just spit-up after feeds. She's happy and gaining weight. Is that okay?</strong><br><span class="small muted">수유 후 게우는 정도이고 아기는 편안하고 체중도 늘어요. 괜찮은 건가요?</span></li>
+    <li><strong>He's very sleepy and hard to wake up for feeds.</strong> / <strong>She's unusually fussy and I can't console her.</strong><br><span class="small muted">너무 졸려하고 먹이려고 깨워도 잘 안 깨요. / 유난히 보채고 달래지지 않아요.</span></li>
+    <li><strong>The jaundice seems to be spreading to his belly and legs, and the whites of his eyes look yellow.</strong><br><span class="small muted">황달이 배와 다리로 번지고 눈 흰자가 노래요.</span></li>
+    <li><strong>The cord stump is red around the base and has a bad smell.</strong> / <strong>It's still bleeding.</strong><br><span class="small muted">탯줄 밑동 주변이 붉고 냄새가 나요. / 계속 피가 나요.</span></li>
+    <li><strong>She's had diarrhea [5] times today, and there was some blood in it.</strong> / <strong>His stool is white.</strong><br><span class="small muted">오늘 설사를 5번 했고 피가 조금 섞였어요. / 변이 흰색이에요.</span></li>
+    <li><strong>He has a rash on his [face/chest]. It's red with small bumps. He doesn't have a fever.</strong><br><span class="small muted">얼굴/가슴에 발진이 있어요. 붉고 작은 돌기가 있고 열은 없어요.</span></li>
+    <li><strong>She's been crying for three hours straight and nothing helps. She's fed, changed, and doesn't have a fever.</strong><br><span class="small muted">세 시간째 계속 우는데 뭘 해도 안 돼요. 먹였고, 기저귀도 갈았고, 열은 없어요.</span></li>
+    <li><strong>He rolled off the bed, about two feet onto a carpet. He cried right away and seems okay now.</strong><br><span class="small muted">침대에서 카펫 바닥으로 60 cm쯤 떨어졌어요. 바로 울었고 지금은 괜찮아 보여요.</span></li>
+    <li><strong>I think she swallowed a button battery.</strong><br><span class="small muted">버튼 배터리를 삼킨 것 같아요. (바로 응급실)</span></li>
+    <li><strong>Should I bring her in now, or can it wait until morning?</strong> / <strong>Which location should we go to, the ER or urgent care?</strong><br><span class="small muted">지금 가야 하나요, 아침까지 괜찮나요? / 응급실과 urgent care 중 어디로 가나요?</span></li>
+    <li><strong>Can I give acetaminophen? She weighs [12] pounds. How much, and how often?</strong><br><span class="small muted">아세트아미노펜을 줘도 되나요? 몸무게 12파운드예요. 얼마나, 몇 시간마다요?</span></li>
+    <li><strong>Can we do a video visit instead?</strong> / <strong>Could the doctor call me back?</strong><br><span class="small muted">비디오 진료로 대신할 수 있나요? / 의사가 다시 전화해 줄 수 있나요?</span></li>
+  </ul>
+  <div class="tbl"><table>
+    <tr><th>°C</th><th>°F (이렇게 말하기)</th><th>뜻</th></tr>
+    <tr><td>36.4</td><td>97.5 "ninety-seven point five"</td><td>이 아래면 저체온, 전화</td></tr>
+    <tr><td>37.0</td><td>98.6</td><td>정상</td></tr>
+    <tr><td>37.5</td><td>99.5</td><td>정상 상한 근처</td></tr>
+    <tr><td><strong>38.0</strong></td><td><strong>100.4 "one hundred point four"</strong></td><td>발열. 3개월 미만은 즉시 전화</td></tr>
+    <tr><td>38.5</td><td>101.3</td><td></td></tr>
+    <tr><td>39.0</td><td>102.2</td><td></td></tr>
+    <tr><td>40.0</td><td>104</td><td>어느 나이든 반복되면 전화</td></tr>
+  </table></div>
+  <p class="small muted">°F = °C × 1.8 + 32. 체중: 1 kg = 2.2 lb, 3.4 kg = 7 lb 8 oz ("seven pounds eight ounces"). 양: 1 oz = 30 mL, 90 mL = 3 oz.</p>
+</section>
+
+<section class="day" style="margin-bottom:16px">
+  <h3 style="margin-top:0">3. 소아과 검진 (well-child visit)</h3>
+  <ul>
+    <li><strong>I have a few questions I wrote down. Is it okay if I go through them?</strong><br><span class="small muted">적어 온 질문이 몇 개 있는데 봐도 될까요?</span></li>
+    <li><strong>Is her weight gain on track?</strong> / <strong>What percentile is he in, and is he following his curve?</strong><br><span class="small muted">체중 증가가 정상인가요? / 몇 백분위이고, 자기 곡선을 따라가고 있나요?</span></li>
+    <li><strong>She's exclusively breastfed. When should we start vitamin D and iron drops?</strong><br><span class="small muted">완전 모유수유 중입니다. 비타민 D와 철분은 언제부터 시작하나요?</span></li>
+    <li><strong>He has eczema. Should we introduce peanut early, and how should we do it safely?</strong><br><span class="small muted">습진이 있어요. 땅콩을 일찍 시작해야 하나요? 안전한 방법은요?</span></li>
+    <li><strong>She's not rolling over yet at [5] months. Should I be concerned?</strong> / <strong>Can we do a developmental screening?</strong><br><span class="small muted">5개월인데 아직 뒤집기를 못 해요. 걱정해야 하나요? / 발달 선별검사를 할 수 있나요?</span></li>
+    <li><strong>Can you check her hips?</strong> / <strong>His head looks flat on one side. What should we do?</strong><br><span class="small muted">고관절을 확인해 주시겠어요? / 머리 한쪽이 납작해요. 어떻게 해야 하나요?</span></li>
+    <li><strong>Which vaccines is she getting today? Do you follow the AAP 2026 schedule?</strong><br><span class="small muted">오늘 어떤 백신을 맞나요? AAP 2026 일정표를 따르시나요?</span></li>
+    <li><strong>Can we get the RSV antibody shot today?</strong> / <strong>When is the rotavirus vaccine due? I know there's a cutoff.</strong><br><span class="small muted">RSV 항체주사를 오늘 맞을 수 있나요? / 로타바이러스 백신은 언제인가요? 마감이 있다고 들었어요.</span></li>
+    <li><strong>If she's fussy or has a fever tonight after the shots, can I give acetaminophen? What dose for [12] pounds?</strong><br><span class="small muted">접종 후 오늘 밤 보채거나 열이 나면 아세트아미노펜을 줘도 되나요? 12파운드면 용량은요?</span></li>
+    <li><strong>Can we get the fluoride varnish today?</strong> / <strong>Our tap water is fluoridated. Does she need fluoride drops?</strong><br><span class="small muted">오늘 불소 바니시를 발라 주실 수 있나요? / 수돗물에 불소가 있는데 불소 드롭이 필요한가요?</span></li>
+    <li><strong>Could I get a printed copy of her immunization record, the yellow card?</strong><br><span class="small muted">접종 기록(옐로카드) 출력본을 받을 수 있나요?</span></li>
+    <li><strong>We may travel to Korea next year. Does she need any extra vaccines, like BCG or Japanese encephalitis?</strong><br><span class="small muted">내년에 한국에 갈 수도 있어요. BCG나 일본뇌염 같은 추가 백신이 필요한가요?</span></li>
+    <li><strong>Can you refer us to a lactation consultant / a pediatric dentist / Early Start?</strong><br><span class="small muted">수유 상담사 / 소아치과 / Early Start(조기개입)로 의뢰해 주시겠어요?</span></li>
+    <li><strong>Could you fill out this form for my employer / the daycare?</strong><br><span class="small muted">회사 / 어린이집 서류를 작성해 주시겠어요?</span></li>
+    <li><strong>How do I set up proxy access so I can message you through the app?</strong><br><span class="small muted">앱으로 메시지를 보낼 수 있게 아기 계정 연결(proxy access)은 어떻게 하나요?</span></li>
+    <li><strong>What should I watch for that would make you want to see her sooner?</strong><br><span class="small muted">다음 검진 전에 더 일찍 봐야 할 신호는 뭔가요?</span></li>
+  </ul>
+</section>
+
+<section class="day" style="margin-bottom:16px">
+  <h3 style="margin-top:0">4. 엄마 산후 (OB · 정신건강)</h3>
+  <ul>
+    <li><strong>I'm calling about my wife. She gave birth [5] days ago. She has a bad headache that won't go away and her vision is blurry.</strong><br><span class="small muted">아내 때문에 전화드립니다. 5일 전에 출산했고, 두통이 가시지 않고 시야가 흐려요. (산후 전자간증 의심 → 즉시)</span></li>
+    <li><strong>She's soaking a pad every hour and passing clots bigger than a golf ball.</strong><br><span class="small muted">한 시간에 패드 하나가 흠뻑 젖고 골프공보다 큰 덩어리가 나와요. (응급)</span></li>
+    <li><strong>She has a fever of [101] and chills, and her incision looks red and is leaking.</strong><br><span class="small muted">열이 101도이고 오한이 있고, 절개 부위가 붉고 진물이 나요.</span></li>
+    <li><strong>Her left leg is swollen and painful.</strong> / <strong>She has chest pain and is short of breath.</strong><br><span class="small muted">왼쪽 다리가 붓고 아파요. / 가슴이 아프고 숨이 차요. (911)</span></li>
+    <li><strong>She's been crying every day for two weeks and can't sleep even when the baby sleeps. I'm worried about postpartum depression. Can we get an appointment with perinatal mental health?</strong><br><span class="small muted">2주째 매일 울고 아기가 잘 때도 못 자요. 산후우울증이 걱정됩니다. 주산기 정신건강 예약을 잡을 수 있나요?</span></li>
+    <li><strong>She said she doesn't want to be here anymore. I'm not leaving her alone. What should we do right now?</strong><br><span class="small muted">아내가 더는 살고 싶지 않다고 했어요. 혼자 두지 않고 있습니다. 지금 어떻게 해야 하나요? (988 또는 911)</span></li>
+    <li><strong>Her breast is red, hot, and painful, and she has a fever. Is this mastitis? Should she keep breastfeeding?</strong><br><span class="small muted">가슴이 붉고 뜨겁고 아프고 열이 나요. 유선염인가요? 수유를 계속해도 되나요?</span></li>
+    <li><strong>She's having a lot of pain at the incision when she stands up. Is that expected at two weeks?</strong><br><span class="small muted">일어설 때 절개 부위가 많이 아파요. 2주째인데 정상인가요?</span></li>
+    <li><strong>We'd like to talk about contraception at the postpartum visit. She's breastfeeding.</strong><br><span class="small muted">산후 검진 때 피임 상담을 하고 싶습니다. 모유수유 중이에요.</span></li>
+    <li><strong>Could you order the breast pump for us?</strong> / <strong>How do I order the Kaiser breast pump?</strong><br><span class="small muted">유축기를 처방해 주시겠어요? / Kaiser 유축기는 어떻게 주문하나요?</span></li>
+  </ul>
+</section>
+
+<section class="day" style="margin-bottom:16px">
+  <h3 style="margin-top:0">5. 약국·행정·앱</h3>
+  <ul>
+    <li><strong>I'd like to pick up a prescription for my daughter. Her date of birth is December 28th, 2026.</strong><br><span class="small muted">딸 처방약을 찾으러 왔습니다. 생년월일은 2026년 12월 28일입니다.</span></li>
+    <li><strong>Do you have infant acetaminophen, 160 milligrams per 5 milliliters? Could you show me how to measure 2.5 mL with the syringe?</strong><br><span class="small muted">유아용 아세트아미노펜 160 mg/5 mL 있나요? 주사기로 2.5 mL 재는 법을 보여 주시겠어요?</span></li>
+    <li><strong>Which saline drops and nasal aspirator do you recommend for a newborn?</strong><br><span class="small muted">신생아용 식염수와 콧물흡입기는 어떤 걸 추천하시나요?</span></li>
+    <li><strong>I need to add my newborn to my plan. What do I need to submit, and what's the deadline?</strong><br><span class="small muted">신생아를 보험에 추가하려 합니다. 무엇을 내야 하고 마감은 언제인가요?</span></li>
+    <li><strong>How do I add my baby as a family member on kp.org so I can see her records?</strong><br><span class="small muted">kp.org에서 아기를 가족으로 추가해 기록을 보려면 어떻게 하나요?</span></li>
+    <li><strong>We need her immunization record in English for Korea. Can you print it with the vaccine brand names and dates?</strong><br><span class="small muted">한국에 낼 영문 접종 기록이 필요합니다. 백신 제품명과 날짜가 나오게 출력해 주시겠어요?</span></li>
+    <li><strong>Could I get a letter confirming the birth for my employer's leave paperwork?</strong><br><span class="small muted">회사 휴가 서류용으로 출생 확인서를 받을 수 있나요?</span></li>
+    <li><strong>I'd like to make an appointment with the pediatrician for a [2-month] well visit.</strong> / <strong>The earliest you have is in three weeks? Is there a cancellation list?</strong><br><span class="small muted">2개월 검진 예약을 잡고 싶어요. / 가장 빠른 게 3주 뒤라고요? 취소 대기 명단이 있나요?</span></li>
+    <li><strong>I'd prefer a pediatrician who speaks Korean, if there is one.</strong><br><span class="small muted">가능하면 한국어 하는 소아과 의사를 원합니다.</span></li>
+  </ul>
+</section>
+
+<section class="day">
+  <h3 style="margin-top:0">6. 단어장</h3>
+  <div class="tbl"><table>
+    <tr><th>영어</th><th>뜻</th><th>영어</th><th>뜻</th></tr>
+    <tr><td>advice nurse</td><td>24시간 상담 간호사</td><td>pediatrician</td><td>소아과 의사</td></tr>
+    <tr><td>well-child visit / well visit</td><td>영유아 정기검진</td><td>urgent care vs ER (emergency room)</td><td>긴급진료 vs 응급실</td></tr>
+    <tr><td>MRN (medical record number)</td><td>의무기록번호</td><td>member ID</td><td>보험 회원번호</td></tr>
+    <tr><td>proxy access</td><td>아기 계정 대리 접근</td><td>consent form</td><td>동의서</td></tr>
+    <tr><td>discharge</td><td>퇴원</td><td>rooming-in</td><td>모자동실</td></tr>
+    <tr><td>lactation consultant (IBCLC)</td><td>수유 상담사</td><td>latch</td><td>젖물리기</td></tr>
+    <tr><td>colostrum</td><td>초유</td><td>engorgement</td><td>유방 울혈</td></tr>
+    <tr><td>mastitis</td><td>유선염</td><td>pump / breast pump</td><td>유축 / 유축기</td></tr>
+    <tr><td>formula</td><td>분유</td><td>bottle / nipple</td><td>젖병 / 젖꼭지</td></tr>
+    <tr><td>pacifier</td><td>공갈젖꼭지</td><td>swaddle</td><td>속싸개(하다)</td></tr>
+    <tr><td>sleep sack</td><td>슬립색(수면조끼)</td><td>tummy time</td><td>터미타임</td></tr>
+    <tr><td>wet diaper</td><td>소변 기저귀</td><td>bowel movement / poop / stool</td><td>대변</td></tr>
+    <tr><td>spit-up</td><td>게움</td><td>vomit / projectile vomiting</td><td>구토 / 분수형 구토</td></tr>
+    <tr><td>rectal temperature</td><td>직장 체온</td><td>fever</td><td>발열</td></tr>
+    <tr><td>fussy</td><td>보채는</td><td>lethargic / hard to wake</td><td>처진 / 잘 안 깨는</td></tr>
+    <tr><td>dehydrated</td><td>탈수된</td><td>jaundice / bilirubin / phototherapy</td><td>황달 / 빌리루빈 / 광선치료</td></tr>
+    <tr><td>umbilical cord stump</td><td>탯줄 밑동</td><td>circumcision</td><td>포경수술</td></tr>
+    <tr><td>soft spot / fontanelle</td><td>숨구멍</td><td>retractions</td><td>흉부 함몰(호흡곤란 신호)</td></tr>
+    <tr><td>wheezing</td><td>쌕쌕거림</td><td>congested / stuffy nose</td><td>코막힘</td></tr>
+    <tr><td>rash / diaper rash</td><td>발진 / 기저귀 발진</td><td>cradle cap</td><td>지루성 두피</td></tr>
+    <tr><td>thrush</td><td>아구창</td><td>eczema</td><td>습진·아토피</td></tr>
+    <tr><td>colic</td><td>영아산통</td><td>reflux</td><td>역류</td></tr>
+    <tr><td>teething</td><td>이앓이</td><td>fluoride varnish</td><td>불소 바니시</td></tr>
+    <tr><td>shots / immunizations / vaccines</td><td>예방접종</td><td>yellow card</td><td>접종 기록 카드</td></tr>
+    <tr><td>developmental screening</td><td>발달 선별검사</td><td>milestones</td><td>발달 이정표</td></tr>
+    <tr><td>percentile / growth chart</td><td>백분위 / 성장도표</td><td>referral</td><td>의뢰(전문과 연결)</td></tr>
+    <tr><td>postpartum</td><td>산후</td><td>lochia / bleeding</td><td>오로 / 출혈</td></tr>
+    <tr><td>perineum / stitches</td><td>회음부 / 봉합</td><td>C-section incision</td><td>제왕절개 절개부</td></tr>
+    <tr><td>sitz bath / peri bottle</td><td>좌욕 / 회음부 세척병</td><td>postpartum depression / baby blues</td><td>산후우울증 / 베이비블루스</td></tr>
+    <tr><td>perinatal mental health</td><td>주산기 정신건강</td><td>Paid Family Leave (PFL)</td><td>유급 가족휴가</td></tr>
+  </table></div>
+</section>
+</div>
 <footer>
   <p>이 페이지는 공부용 자료입니다. 아기의 증상·치료는 반드시 소아과 의사(Kaiser 24시간 advice nurse 포함)와 상의하세요. 미국(AAP·CDC·Kaiser)과 한국(대한소아청소년과학회·질병관리청) 지침을 함께 적었고, 다른 곳은 그렇다고 표시했습니다. 자료 조사일 2026-10-19. 접종·법령·수수료는 바뀔 수 있으니 링크 원문을 확인하세요.</p>
-  <p><span id="sync" class="sync">저장 상태</span> <span id="sync-msg"></span> · 마지막 수정 <span id="last-mod">–</span> · <a href="https://claude.ai/artifact/LKWaj7cPM95xvSJJUHEwf4">출산 준비 노트(임신 중 할 일)</a></p>
+  <p><span id="sync" class="sync">저장 상태</span> <span id="sync-msg"></span> · 마지막 수정 <span id="last-mod">–</span> · v1.1 (2026-10-19) · <a href="https://benmsk.github.io/mm-baby-school/">github.io 버전</a> · <a href="https://claude.ai/artifact/Ff7anvSvtRLy77STxJPAKu">claude.ai 공유 버전</a> · <a href="https://claude.ai/artifact/LKWaj7cPM95xvSJJUHEwf4">출산 준비 노트(임신 중 할 일)</a></p>
 </footer>
 </main>
 </template>
@@ -2524,16 +2722,16 @@ function renderLessons(){
 }
 function setTab(t){
   $$(".tab").forEach(function(b){ b.setAttribute("aria-selected", b.getAttribute("data-tab")===t ? "true":"false"); });
-  $("#pane-dad").hidden = t!=="dad"; $("#pane-course").hidden = t!=="course";
-  if(t==="dad"){ ls(LS_VIEW,"dad"); if(history.replaceState) history.replaceState(null,"","#dad"); window.scrollTo(0,0); }
+  $$(".pane").forEach(function(p){ p.hidden = p.getAttribute("data-pane")!==t; });
+  if(t!=="course"){ ls(LS_VIEW,t); if(history.replaceState) history.replaceState(null,"","#"+t); window.scrollTo(0,0); }
 }
 function route(){
   var h=(location.hash||"").replace("#",""), m=/^d(\d+)$/.exec(h);
   if(m){ setTab("course"); showDay(parseInt(m[1],10)); return; }
   if(h==="course"){ setTab("course"); showDay(0); return; }
-  if(h==="dad"){ setTab("dad"); return; }
+  if(h==="dad"||h==="english"){ setTab(h); return; }
   var v=ls(LS_VIEW)||"dad", m2=/^d(\d+)$/.exec(v);
-  if(m2){ setTab("course"); showDay(parseInt(m2[1],10)); } else { setTab("dad"); }
+  if(m2){ setTab("course"); showDay(parseInt(m2[1],10)); } else { setTab(v==="english"?"english":"dad"); }
 }
 function renderAll(){ renderChecks(); renderDates(); renderLessons(); renderMod(); }
 function renderMod(){ var m=STATE.updated; var el=$("#last-mod"); if(el) el.textContent = m ? new Date(m).toLocaleString("ko-KR") : "–"; }
