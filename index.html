@@ -225,6 +225,33 @@ td.c,th.c{text-align:center}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (max-width:560px){.grid2{grid-template-columns:1fr}}
 .sticker{position:absolute;pointer-events:none}
+/* illustrations: one deliberate "colored pencil on cream paper" look in both themes */
+.ill{margin:16px 0;background:#FFF6EA;border:1px solid #EAD9C8;border-radius:16px;padding:10px 12px 6px;max-width:100%}
+.ill svg{display:block;width:100%;height:auto;max-width:480px;margin:0 auto}
+.ill figcaption{font-size:.82rem;color:#6E4F45;text-align:center;margin-top:4px;line-height:1.5}
+.ill figcaption a{color:#2E6FA8}
+.ill .ln{fill:none;stroke:#6E4F45;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:.85}
+.ill .fl{stroke:#6E4F45;stroke-width:1.6;stroke-linejoin:round;stroke-opacity:.7;fill-opacity:.92}
+.ill text{font-family:var(--f-body);fill:#5A4038;font-size:11px}
+.ill text.b{font-family:var(--f-display);font-size:12px;fill:#6E4F45}
+.ill .x{fill:none;stroke:#E05A6D;stroke-width:3.5;stroke-linecap:round}
+.ill .ok{fill:none;stroke:#3FA77F;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+/* Q&A */
+.qa-search{display:flex;gap:8px;align-items:center;margin-top:10px}
+.qa-search input{flex:1;min-width:0;font:inherit;font-size:1rem;padding:10px 12px;border:1px solid var(--line2);border-radius:12px;background:var(--surface);color:var(--ink)}
+.chip.qa-cat{border:1px solid transparent;background:var(--soft);cursor:pointer;font:inherit;font-size:.82rem;color:var(--ink);padding:3px 11px}
+.chip.qa-cat.on{background:var(--peach);color:#fff}
+.qa-group>h3{margin-top:1.4em}
+.qa{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:8px 0}
+.qa summary{cursor:pointer;padding:10px 14px;font-weight:700;list-style:none;display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::before{content:"Q";flex:none;width:1.6em;height:1.6em;border-radius:50%;background:var(--peach);color:#fff;font-family:var(--f-display);font-weight:400;display:grid;place-content:center;font-size:.85em;margin-top:.15em}
+.qa[open] summary{border-bottom:1px solid var(--line)}
+.qa .qa-a{padding:10px 14px 12px;font-size:.97rem}
+.qa .qa-a p{margin:0 0 .5em}
+.qa .qa-r{margin:0;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.src.go{background:var(--mint-soft);color:var(--mint-ink);border:0;cursor:pointer;font-family:inherit;padding:1px 7px}
+@media (max-width:520px){.tab{font-size:.84rem;padding:7px 3px;gap:3px}.tab .ico{width:1.1em;height:1.1em}.tab .long{display:none}}
 footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;border-top:1px solid var(--line)}
 .vis{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
@@ -250,19 +277,22 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
 <symbol id="i-home" viewBox="0 0 64 64"><path d="M8 32L32 12l24 20" style="fill:none;stroke:var(--peach);stroke-width:4;stroke-linecap:round;stroke-linejoin:round"/><path d="M14 28v26h36V28" style="fill:var(--soft);stroke:var(--peach);stroke-width:3"/><rect x="27" y="38" width="10" height="16" rx="2" style="fill:var(--peach)"/></symbol>
 <symbol id="i-flag" viewBox="0 0 64 64"><path d="M14 8v48" style="stroke:var(--ink);stroke-width:4;stroke-linecap:round"/><path d="M16 10h34l-8 11 8 11H16z" style="fill:var(--rose)"/></symbol>
 <symbol id="i-plane" viewBox="0 0 64 64"><path d="M8 36l48-20-16 26-10-6-12 10 4-12z" style="fill:var(--sky)"/><path d="M30 36l26-20" style="stroke:var(--surface);stroke-width:2"/></symbol>
+<filter id="pencil" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+<symbol id="i-q" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" style="fill:var(--lilac)"/><path d="M24 26a8 8 0 0 1 16 0c0 5-6 6-6 11" style="fill:none;stroke:#fff;stroke-width:4.5;stroke-linecap:round"/><circle cx="34" cy="45" r="3" style="fill:#fff"/></symbol>
 <symbol id="i-chat" viewBox="0 0 64 64"><path d="M12 12h40a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6H30l-12 10V46h-6a6 6 0 0 1-6-6V18a6 6 0 0 1 6-6z" style="fill:var(--sky)"/><circle cx="22" cy="29" r="3" style="fill:#fff"/><circle cx="32" cy="29" r="3" style="fill:#fff"/><circle cx="42" cy="29" r="3" style="fill:#fff"/></symbol>
 <symbol id="i-cal" viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="42" rx="6" style="fill:var(--surface);stroke:var(--lilac);stroke-width:2.5"/><rect x="10" y="14" width="44" height="12" rx="6" style="fill:var(--lilac)"/><path d="M22 8v10M42 8v10" style="stroke:var(--ink);stroke-width:3;stroke-linecap:round"/><circle cx="24" cy="38" r="3" style="fill:var(--peach)"/><circle cx="34" cy="38" r="3" style="fill:var(--lilac)"/><circle cx="44" cy="38" r="3" style="fill:var(--lilac)"/><circle cx="24" cy="48" r="3" style="fill:var(--lilac)"/></symbol>
 </defs></svg>
 <header class="top"><div class="wrap">
   <div class="row">
-    <div class="brand"><svg class="ico" aria-hidden="true"><use href="#i-baby"/></svg><div><h1>M&amp;M 육아 학교</h1><div class="sub">아빠 할 일 · 2주 코스 · Kaiser 영어 · 생후 0–12개월 · <span class="ver">v1.1 (2026-10-19)</span></div></div></div>
+    <div class="brand"><svg class="ico" aria-hidden="true"><use href="#i-baby"/></svg><div><h1>M&amp;M 육아 학교</h1><div class="sub">아빠 할 일 · 2주 코스 · Kaiser 영어 · 생후 0–12개월 · <span class="ver">v1.2 (2026-10-19)</span></div></div></div>
     <span class="sp"></span>
     <label class="small muted">나는 <select id="who" aria-label="기록자"><option value="">선택</option><option value="아빠">아빠</option><option value="엄마">엄마</option></select></label>
     <button type="button" id="theme" class="btn" aria-label="화면 모드 전환"><span class="em">🌙</span><span class="lbl">다크</span></button>
   </div>
   <div class="tabs" role="tablist">
     <button type="button" class="tab" role="tab" data-tab="dad" aria-selected="true"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>아빠 할 일</button>
-    <button type="button" class="tab" role="tab" data-tab="course" aria-selected="false"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg>육아 2주 코스</button>
+    <button type="button" class="tab" role="tab" data-tab="course" aria-selected="false"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg><span class="long">육아&nbsp;</span>2주 코스</button>
+    <button type="button" class="tab" role="tab" data-tab="qa" aria-selected="false"><svg class="ico" aria-hidden="true"><use href="#i-q"/></svg>Q&amp;A</button>
     <button type="button" class="tab" role="tab" data-tab="english" aria-selected="false"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Kaiser 영어</button>
   </div>
 </div></header>
@@ -467,6 +497,23 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
   </table></div>
   <p>떼어낼 때는 그냥 당기지 말고 <strong>새끼손가락을 입꼬리에 넣어 흡인을 풀고</strong> 다시 물립니다. 그냥 떼면 유두가 손상됩니다. <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/ensuring-proper-latch-on.aspx">AAP</a> <a class="src kr" href="https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6586">질병관리청</a></p>
 
+  <figure class="ill"><svg viewBox="0 0 320 190" role="img" aria-label="올바른 젖물리기: 입을 크게 벌려 아래쪽 유륜까지 깊게, 턱은 가슴에 닿고 코는 살짝 떨어짐">
+    <g filter="url(#pencil)">
+      <circle cx="92" cy="104" r="68" fill="#F8D5BC" class="fl"/>
+      <circle cx="152" cy="104" r="20" fill="#F2B5A0" class="fl"/>
+      <ellipse cx="160" cy="104" rx="5" ry="7" fill="#E59A86" class="fl"/>
+      <circle cx="222" cy="108" r="50" fill="#F8D5BC" class="fl"/>
+      <path d="M250 62c2-8 10-10 16-5" class="ln"/>
+      <polygon points="172,90 200,106 172,124" fill="#E89A9A" class="fl"/>
+      <path d="M172 90c-6-4-10 0-8 6M172 124c-6 4-10 0-8-6M178 76q-6 2-4 8M212 96q4-3 8 0" class="ln"/>
+      <circle cx="238" cy="120" r="4.5" fill="#F4A6A6"/>
+    </g>
+    <path d="M72 30Q120 60 150 118M104 60L172 78M126 168L168 132M262 172L198 112" class="ln" style="stroke-width:1.2;stroke-dasharray:3 3"/>
+    <text x="14" y="24" class="b">아래쪽 유륜이 더 많이 물리게</text>
+    <text x="100" y="56" text-anchor="end">코는 살짝 떨어지게</text>
+    <text x="122" y="176" text-anchor="end">턱은 가슴에 닿게</text>
+    <text x="312" y="184" text-anchor="end">입은 크게, 입술은 바깥으로</text>
+  </svg><figcaption>잘 물린 신호: 입술이 바깥으로 뒤집히고, 처음 몇 번 빨고 나면 아프지 않습니다. 아프면 새끼손가락으로 흡인을 풀고 다시. <a href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/ensuring-proper-latch-on.aspx">AAP 그림 설명</a></figcaption></figure>
   <h3>4. 수유 자세</h3>
   <div class="tbl"><table>
     <tr><th>자세</th><th>방법</th><th>특히 유용할 때</th></tr>
@@ -653,6 +700,21 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
   <p>아기를 반쯤 세워 안고(머리가 팔꿈치 안쪽), 젖꼭지에 분유가 차도록 기울여 공기를 덜 삼키게 합니다. <strong>눕혀서 먹이거나 젖병을 괴어 놓고(propping) 자리를 비우면 안 됩니다</strong>. 질식 위험에 더해 분유가 귀 쪽 관으로 들어가 중이염 위험이 커집니다. <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/Bottle-Feeding-How-Its-Done.aspx">AAP</a></p>
   <p>페이스드 보틀 피딩(paced bottle feeding)은 모유와 병행하거나 급하게 먹는 아기에게 수유 전문가들이 가르치는 방법입니다(Stanford Children's는 젖병 쓰는 가족에게 이 방법을 교육한다고 정책에 명시). 요령: 아기를 거의 세워 안기 → 젖꼭지를 윗입술에 대어 스스로 물게 → 젖병을 수평에 가깝게 들어 흐름을 천천히 → 20~30초마다 젖병을 살짝 내려 쉬게 → 중간에 안는 방향 바꾸기 → 배부름 신호가 보이면 남아도 중단. 1회 15~20분이 목표. 젖꼭지는 가장 느린 단계(slow flow)부터 시작합니다. <a class="src" href="https://www.stanfordchildrens.org/content/dam/sch/content-public/services/pdf/infant-feeding-policy-stanford-childrens.pdf">Stanford 수유 정책(PDF)</a></p>
 
+  <figure class="ill"><svg viewBox="0 0 320 170" role="img" aria-label="페이스드 수유: 반쯤 세워 안고 젖병은 수평에 가깝게. 눕혀서 세운 젖병이나 괴어 놓기는 금지">
+    <g filter="url(#pencil)">
+      <ellipse cx="90" cy="102" rx="42" ry="20" transform="rotate(35 90 102)" fill="#C5E8D5" class="fl"/>
+      <circle cx="60" cy="62" r="18" fill="#F8D5BC" class="fl"/>
+      <path d="M53 60q3-3 6 0M66 60q3-3 6 0" class="ln"/><circle cx="52" cy="68" r="2.5" fill="#F4A6A6"/>
+      <rect x="76" y="56" width="46" height="12" rx="5" transform="rotate(-12 76 62)" fill="#BFDDF3" class="fl"/><circle cx="76" cy="64" r="4" fill="#F2B5A0" class="fl"/>
+      <ellipse cx="250" cy="118" rx="42" ry="18" fill="#C5E8D5" class="fl"/>
+      <circle cx="200" cy="112" r="18" fill="#F8D5BC" class="fl"/>
+      <path d="M193 110q3-3 6 0M206 110q3-3 6 0" class="ln"/>
+      <rect x="194" y="46" width="12" height="46" rx="5" fill="#BFDDF3" class="fl"/><circle cx="200" cy="94" r="4" fill="#F2B5A0" class="fl"/>
+    </g>
+    <path d="M14 22l8 8 14-14" class="ok"/><path d="M286 14l20 20M306 14l-20 20" class="x"/>
+    <text x="80" y="158" text-anchor="middle">반쯤 세워 안고, 젖병은 수평에 가깝게</text>
+    <text x="240" y="158" text-anchor="middle">눕혀서 세운 젖병 · 괴어 놓기</text>
+  </svg><figcaption>20~30초마다 젖병을 살짝 내려 쉬게 하고, 배부름 신호가 보이면 남아도 중단. 신생아는 가장 느린 젖꼭지부터.</figcaption></figure>
   <h3>7. 젖병 물려 재우기 금지</h3>
   <p>분유·모유·주스를 입에 문 채 잠들면 치아 표면에 당이 머물러 <strong>젖병 충치(baby bottle tooth decay)</strong>가 생기고, 누운 채 먹으면 중이염 위험이 큽니다. 노리개젖꼭지에 단것 묻히기도 금지. <a class="src" href="https://www.healthychildren.org/English/healthy-living/oral-health/Pages/Brushing-Up-on-Oral-Health-Never-Too-Early-to-Start.aspx">AAP</a></p>
 
@@ -666,6 +728,17 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     <li><strong>구토(vomiting), 즉시 연락</strong>: 복근을 쓰며 <strong>분수처럼 뿜는(projectile) 구토가 매 수유 후</strong> 반복(생후 2주~4개월, 유문협착증 의심 → 응급), 초록색(담즙)·피 섞임, 젖은 기저귀 감소·입 마름·무기력, 24시간 넘는 구토, 체중 정체. <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/Why-Babies-Spit-Up.aspx">AAP</a></li>
   </ul>
 
+  <figure class="ill"><svg viewBox="0 0 360 150" role="img" aria-label="트림 자세 세 가지: 어깨에 세워 안기, 무릎에 앉혀 턱 받치기, 무릎에 엎어 머리 높이기">
+    <g filter="url(#pencil)">
+      <circle cx="52" cy="34" r="14" fill="#F8D5BC" class="fl"/><rect x="32" y="50" width="40" height="78" rx="14" fill="#BFDDF3" class="fl"/>
+      <rect x="68" y="50" width="20" height="30" rx="8" fill="#F9C2B4" class="fl"/><circle cx="78" cy="40" r="9" fill="#F8D5BC" class="fl"/><ellipse cx="80" cy="72" rx="6" ry="4" fill="#F8D5BC" class="fl"/>
+      <circle cx="170" cy="30" r="14" fill="#F8D5BC" class="fl"/><rect x="150" y="46" width="40" height="50" rx="14" fill="#C5E8D5" class="fl"/><rect x="144" y="96" width="70" height="12" rx="6" fill="#C5E8D5" class="fl"/>
+      <rect x="196" y="76" width="20" height="22" rx="7" fill="#F9C2B4" class="fl"/><circle cx="206" cy="66" r="9" fill="#F8D5BC" class="fl"/><ellipse cx="208" cy="78" rx="7" ry="4" fill="#F8D5BC" class="fl"/><ellipse cx="190" cy="86" rx="5" ry="4" fill="#F8D5BC" class="fl"/>
+      <circle cx="290" cy="30" r="14" fill="#F8D5BC" class="fl"/><rect x="270" y="46" width="40" height="50" rx="14" fill="#FBE7A6" class="fl"/><rect x="262" y="96" width="76" height="12" rx="6" fill="#FBE7A6" class="fl"/>
+      <rect x="278" y="86" width="44" height="13" rx="6" fill="#F9C2B4" class="fl"/><circle cx="272" cy="82" r="9" fill="#F8D5BC" class="fl"/><ellipse cx="302" cy="80" rx="6" ry="4" fill="#F8D5BC" class="fl"/>
+    </g>
+    <text x="60" y="140" text-anchor="middle">어깨에 세워 안고 등 토닥</text><text x="180" y="140" text-anchor="middle">무릎에 앉혀 턱·가슴 받치고</text><text x="300" y="140" text-anchor="middle">무릎에 엎어 머리를 높게</text>
+  </svg><figcaption>분유는 60~90 mL마다, 모유는 젖 바꿀 때. 몇 분 해도 안 나오면 그냥 계속 먹여도 됩니다. <a href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/baby-burping-hiccups-and-spit-up.aspx">AAP</a></figcaption></figure>
   <h3>10. 혼합수유</h3>
   <p>젖을 먼저 물리고 부족분만 분유로. 모유와 분유를 한 병에 섞어도 되지만 보관 기한은 분유 기준(실온 2시간)을 따릅니다. 분유를 준 끼니에는 가능하면 유축해서 공급을 유지하세요. <a class="src" href="https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/how-much-and-how-often.html">CDC</a></p>
 
@@ -789,6 +862,22 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     <li>구역질(gagging: 소리 나고 얼굴 붉어짐, 스스로 해결)과 질식(choking: 소리 없음, 파랗게 됨)을 구분하고, 영아 CPR·하임리히를 미리 배워 두세요(Day 12).</li>
   </ul>
 
+  <figure class="ill"><svg viewBox="0 0 320 156" role="img" aria-label="질식 예방: 포도는 세로로 4등분, 핫도그는 길게, 핑거푸드는 동전이 아니라 손가락 모양 스틱">
+    <g filter="url(#pencil)">
+      <circle cx="40" cy="50" r="16" fill="#C9B6E8" class="fl"/>
+      <circle cx="120" cy="50" r="16" fill="#C9B6E8" class="fl"/>
+      <rect x="166" y="42" width="66" height="16" rx="8" fill="#F2B5A0" class="fl"/>
+      <rect x="268" y="40" width="46" height="6" rx="3" fill="#F2B5A0" class="fl"/><rect x="268" y="50" width="46" height="6" rx="3" fill="#F2B5A0" class="fl"/><rect x="268" y="60" width="46" height="6" rx="3" fill="#F2B5A0" class="fl"/>
+      <rect x="30" y="96" width="14" height="44" rx="6" fill="#BFE3B4" class="fl"/>
+      <circle cx="190" cy="118" r="12" fill="#BFE3B4" class="fl"/>
+    </g>
+    <path d="M104 50h32M120 34v32" class="ln"/>
+    <path d="M62 50h22M80 46l6 4-6 4M240 50h20M256 46l6 4-6 4" class="ln" style="stroke-width:1.6"/>
+    <path d="M52 102l6 6 10-10" class="ok" style="stroke-width:2.6"/><path d="M206 108l12 12M218 108l-12 12" class="x" style="stroke-width:2.6"/>
+    <text x="80" y="84" text-anchor="middle">포도·방울토마토: 세로로 4등분</text><text x="250" y="84" text-anchor="middle">핫도그: 길게 가늘게</text>
+    <text x="76" y="122">손가락 모양 스틱</text><text x="230" y="122">동전 모양</text>
+    <text x="160" y="150" text-anchor="middle">조각은 1.3 cm(½인치) 이하, 잇몸으로 으깨질 만큼 부드럽게</text>
+  </svg><figcaption>동그란 조각은 기도 크기와 같아 가장 위험합니다. 아기가 한쪽 끝을 쥐고 반대쪽을 씹을 수 있는 스틱으로. <a href="https://www.healthychildren.org/English/health-issues/injuries-emergencies/Pages/Choking-Prevention.aspx">AAP</a></figcaption></figure>
   <h3>8. 아기주도이유식(BLW) vs 퓨레</h3>
   <p>AAP 입장: BLW는 자율성·다양한 질감·과식 방지 등의 장점이 제안되지만 연구가 적습니다. 단점은 <strong>철분·열량 부족 위험</strong>(과일만 먹고 고기를 안 먹음)과 질식 우려. 현실적 절충은 퓨레와 핑거푸드를 섞어 가되, <strong>철분 식품과 알레르겐은 부모가 주도해 챙기는 것</strong>입니다. 스스로 앉지 못하거나 미숙아면 기다리세요. SNS의 "통닭다리 먹는 아기" 영상은 위험합니다. <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/baby-led-weaning-is-it-safe.aspx">AAP</a></p>
 
@@ -981,6 +1070,21 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     <li>한국 사이트는 "12 mg/dL" 같은 고정 수치를 많이 적지만, AAP 2022 지침은 생후 시간별 노모그램으로 판단하므로 수치만 보고 비교하지 마세요.</li>
   </ul>
 
+  <figure class="ill"><svg viewBox="0 0 320 206" role="img" aria-label="황달이 번지는 순서: 얼굴에서 가슴, 배, 팔다리, 손발바닥 순으로 내려오며 아래로 갈수록 수치가 높을 가능성">
+    <g filter="url(#pencil)">
+      <rect x="92" y="70" width="26" height="70" rx="13" fill="#F6D266" class="fl"/><rect x="202" y="70" width="26" height="70" rx="13" fill="#F6D266" class="fl"/>
+      <rect x="128" y="138" width="30" height="36" rx="14" fill="#F6D266" class="fl"/><rect x="162" y="138" width="30" height="36" rx="14" fill="#F6D266" class="fl"/>
+      <circle cx="105" cy="146" r="9" fill="#F0C24A" class="fl"/><circle cx="215" cy="146" r="9" fill="#F0C24A" class="fl"/>
+      <circle cx="143" cy="178" r="8" fill="#F0C24A" class="fl"/><circle cx="177" cy="178" r="8" fill="#F0C24A" class="fl"/>
+      <rect x="122" y="66" width="76" height="36" rx="12" fill="#FDEBAE" class="fl"/>
+      <rect x="122" y="102" width="76" height="36" rx="12" fill="#FADF8A" class="fl"/>
+      <circle cx="160" cy="40" r="28" fill="#FFF6D1" class="fl"/>
+      <path d="M150 36q4-3 8 0M162 36q4-3 8 0M152 48q8 5 16 0" class="ln"/><circle cx="146" cy="44" r="3" fill="#F4A6A6"/><circle cx="174" cy="44" r="3" fill="#F4A6A6"/>
+    </g>
+    <text x="160" y="22" text-anchor="middle" class="b">1</text><text x="160" y="90" text-anchor="middle" class="b">2</text><text x="160" y="126" text-anchor="middle" class="b">3</text><text x="105" y="110" text-anchor="middle" class="b">4</text><text x="215" y="110" text-anchor="middle" class="b">4</text><text x="105" y="150" text-anchor="middle" class="b">5</text><text x="215" y="150" text-anchor="middle" class="b">5</text>
+    <text x="236" y="30">1 얼굴·눈</text><text x="236" y="52">2 가슴</text><text x="236" y="74">3 배</text><text x="236" y="96">4 팔다리</text><text x="236" y="118">5 손발 → 진료</text>
+    <text x="160" y="198" text-anchor="middle">아래로 번질수록 수치가 높을 가능성 · 배·다리·손발까지 번지면 진료</text>
+  </svg><figcaption>밝은 자연광에서 피부를 살짝 눌러 보면 노란기가 보입니다. 생후 24시간 안의 황달, 눈 흰자가 노래짐, 잘 안 깨고 안 먹음은 바로 진료. <a href="https://www.healthychildren.org/English/ages-stages/baby/Pages/Jaundice.aspx">AAP</a></figcaption></figure>
   <h3>8. 탯줄·생식기: 첫 2주 관리</h3>
   <ul>
     <li><strong>탯줄(dry cord care)</strong>: 알코올 소독 불필요. 깨끗하고 <strong>마르게</strong> 유지하고, 기저귀 앞부분을 접어 탯줄 아래로 내립니다. 떨어질 때까지 통목욕 대신 스펀지 목욕(Day 6). 보통 1~2주에 떨어지고, 피 몇 방울은 정상. <strong>3주</strong>가 지나도 안 떨어지면 진료. <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Umbilical-Cord-Care.aspx">AAP</a></li>
@@ -1082,6 +1186,23 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
   </ol>
   <div class="box tip"><h4>돌 전엔 "버릇"이 없습니다</h4><p>생후 몇 달 동안 울음에 빨리 반응해 주는 것이 아기를 버릇없게 만들지 않습니다. 오히려 반응이 빠를수록 나중에 덜 운다는 것이 AAP의 설명입니다. 다만 하정훈 선생님 영상(#798)처럼 "모든 울음을 즉시 해결해야 한다"는 강박은 부모를 지치게 하니, 안전이 확인됐다면 몇 분 두는 것도 괜찮습니다.</p></div>
 
+  <figure class="ill"><svg viewBox="0 0 320 190" role="img" aria-label="속싸개: 팔은 몸에 붙이고 다리는 M자로 자유롭게. 다리를 쭉 펴 꽉 싸는 것은 고관절에 해로움">
+    <g filter="url(#pencil)">
+      <path d="M54 56h60l12 100H42z" fill="#F9C2B4" class="fl"/>
+      <path d="M60 62l46 38M108 62L62 100" class="ln"/>
+      <path d="M70 150q0-24 14-34q14 10 14 34" class="ln"/>
+      <rect x="76" y="64" width="4" height="12" rx="2" fill="#F8D5BC" class="fl"/><rect x="82" y="64" width="4" height="12" rx="2" fill="#F8D5BC" class="fl"/><rect x="88" y="64" width="4" height="12" rx="2" fill="#F8D5BC" class="fl"/>
+      <circle cx="84" cy="36" r="18" fill="#F8D5BC" class="fl"/>
+      <path d="M77 34q3-3 6 0M89 34q3-3 6 0M80 42q4 3 8 0" class="ln"/><circle cx="74" cy="40" r="2.6" fill="#F4A6A6"/><circle cx="94" cy="40" r="2.6" fill="#F4A6A6"/>
+      <rect x="212" y="56" width="48" height="100" rx="10" fill="#F9C2B4" class="fl"/>
+      <path d="M214 72h44M214 92h44M228 112v38M244 112v38" class="ln"/>
+      <circle cx="236" cy="36" r="18" fill="#F8D5BC" class="fl"/>
+      <path d="M229 34q3-3 6 0M241 34q3-3 6 0M232 44q4-3 8 0" class="ln"/>
+    </g>
+    <path d="M14 22l8 8 14-14" class="ok"/><path d="M286 14l20 20M306 14l-20 20" class="x"/>
+    <text x="84" y="172" text-anchor="middle">팔은 몸에, 가슴엔 손가락 2~3개 여유</text><text x="84" y="186" text-anchor="middle">다리는 M자로 굽히고 벌릴 수 있게</text>
+    <text x="236" y="172" text-anchor="middle">다리를 쭉 펴서 꽉 싸기</text><text x="236" y="186" text-anchor="middle">(고관절 이형성증 위험)</text>
+  </svg><figcaption>항상 등으로 눕히고, 뒤집기 조짐이 보이면(이르면 2개월) 즉시 중단하고 슬립색으로. <a href="https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Swaddling-Is-it-Safe.aspx">AAP</a></figcaption></figure>
   <h3>4. 절대 흔들지 말 것: 흔들린 아이 증후군</h3>
   <p>목이 무거운 머리를 못 받치는 시기에는 몇 초의 흔들림으로도 뇌출혈·실명·경련·사망이 생깁니다(학대성 머리 외상, abusive head trauma). 가장 흔한 계기가 <strong>울음</strong>입니다. 감기나 장염으로 오해되기 쉬운 증상(처짐, 구토, 호흡 곤란, 경련, 안 깨어남)이 흔든 뒤 나타나면 <strong>911</strong>. <a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Abusive-Head-Trauma-Shaken-Baby-Syndrome.aspx">AAP</a></p>
   <div class="box dont"><h4>감당이 안 될 때 할 일 (AAP)</h4>
@@ -1167,6 +1288,22 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     <li><strong>저체온도 위험</strong>: Kaiser는 직장 체온 <strong>36.4°C(97.5°F) 미만</strong>도 "지금 전화" 항목입니다. <a class="src" href="https://healthy.kaiserpermanente.org/health-wellness/health-encyclopedia/he.when-to-call-for-problems-in-newborns-care-instructions.aco0315">Kaiser: 신생아 언제 전화하나</a></li>
   </ul>
 
+  <figure class="ill"><svg viewBox="0 0 320 176" role="img" aria-label="직장 체온 재기: 아기를 등 대고 눕혀 다리를 가슴 쪽으로 들고 체온계를 1.3 cm만 넣기">
+    <g filter="url(#pencil)">
+      <ellipse cx="138" cy="106" rx="62" ry="26" fill="#C5E8D5" class="fl"/>
+      <circle cx="60" cy="96" r="22" fill="#F8D5BC" class="fl"/>
+      <path d="M52 92q3-3 6 0M64 92q3-3 6 0M54 102q6 4 12 0" class="ln"/><circle cx="48" cy="100" r="3" fill="#F4A6A6"/>
+      <path d="M196 96L226 46M206 102L240 54" style="fill:none;stroke:#F8D5BC;stroke-width:10;stroke-linecap:round"/>
+      <circle cx="226" cy="42" r="6" fill="#F8D5BC" class="fl"/><circle cx="242" cy="50" r="6" fill="#F8D5BC" class="fl"/>
+      <ellipse cx="236" cy="36" rx="13" ry="8" fill="#F2C9A8" class="fl"/>
+      <rect x="196" y="118" width="58" height="8" rx="4" transform="rotate(22 196 122)" fill="#FFFDF8" class="fl"/>
+      <circle cx="198" cy="122" r="3" fill="#E05A6D"/>
+    </g>
+    <path d="M200 134l6-2" class="ln" style="stroke-width:1.2"/>
+    <text x="312" y="26" text-anchor="end" class="b">38.0°C = 100.4°F</text>
+    <text x="160" y="154" text-anchor="middle">다리를 가슴 쪽으로 들고, 끝에 바셀린</text>
+    <text x="160" y="170" text-anchor="middle">1.3 cm(½인치)만 · 저항이 느껴지면 멈춤</text>
+  </svg><figcaption>3개월 미만은 직장 체온이 표준. "rectal"이라고 써 붙여 입용 체온계와 분리하세요.</figcaption></figure>
   <h3>2. 월령별 발열 기준</h3>
   <div class="tbl"><table>
     <tr><th>월령</th><th>기준</th><th>행동</th></tr>
@@ -1287,6 +1424,25 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     </ol>
   </div>
 
+  <figure class="ill"><svg viewBox="0 0 320 190" role="img" aria-label="안전한 수면 환경: 맨 침대에 등 대고 누운 아기, 베개·이불·인형·범퍼는 금지">
+    <g filter="url(#pencil)">
+      <rect x="34" y="78" width="252" height="92" rx="10" fill="#BFDDF3" class="fl"/>
+      <path d="M56 88v70M80 88v70M104 88v70M248 88v70M272 88v70" class="ln"/>
+      <rect x="44" y="128" width="232" height="16" rx="5" fill="#FFFDF8" class="fl"/>
+      <rect x="118" y="110" width="118" height="26" rx="13" fill="#C5E8D5" class="fl"/>
+      <path d="M126 112q-8-10 2-16M226 112q8-10-2-16" class="ln"/>
+      <circle cx="100" cy="122" r="17" fill="#F8D5BC" class="fl"/>
+      <path d="M93 120q3-3 6 0M103 120q3-3 6 0M96 128q4 3 8 0" class="ln"/>
+      <circle cx="89" cy="127" r="2.6" fill="#F4A6A6"/><circle cx="111" cy="127" r="2.6" fill="#F4A6A6"/>
+      <rect x="48" y="22" width="40" height="22" rx="8" fill="#D9CCF0" class="fl"/>
+      <rect x="108" y="26" width="40" height="18" rx="3" fill="#F6B8C6" class="fl"/>
+      <circle cx="176" cy="26" r="4" fill="#E8C9A8" class="fl"/><circle cx="192" cy="26" r="4" fill="#E8C9A8" class="fl"/><circle cx="184" cy="34" r="10" fill="#E8C9A8" class="fl"/>
+      <rect x="216" y="24" width="52" height="20" rx="6" fill="#FBE7A6" class="fl"/>
+    </g>
+    <g class="x"><path d="M50 18l36 30M86 18l-36 30M110 18l36 30M146 18l-36 30M168 16l32 34M200 16l-32 34M218 16l48 34M266 16l-48 34"/></g>
+    <text x="68" y="64" text-anchor="middle">베개</text><text x="128" y="64" text-anchor="middle">이불</text><text x="184" y="64" text-anchor="middle">인형</text><text x="242" y="64" text-anchor="middle">범퍼</text>
+    <text x="160" y="186" text-anchor="middle" class="b">등 대고 · 시트 한 장 · 슬립색 · 같은 방, 다른 침대</text>
+  </svg><figcaption>침대 안에는 아기와 시트뿐. 담요 대신 슬립색, 부모 침대 옆에 아기 침대. <a href="https://safetosleep.nichd.nih.gov/reduce-risk/reduce">NIH Safe to Sleep</a></figcaption></figure>
   <h3>0. 냉장고에 붙이는 한 장 요약</h3>
   <div class="tbl"><table>
     <tr><th>하지 말 것</th><th>할 것</th></tr>
@@ -1522,6 +1678,21 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     <li><strong>비행기</strong>: 2세 미만 무릎 동반이 무료지만 AAP·FAA는 좌석 구매 + FAA 승인 카시트 권장(난기류가 기내 아동 부상 1위). 이착륙 때 수유·공갈젖꼭지로 귀 압력 완화.</li>
   </ul>
 
+  <figure class="ill"><svg viewBox="0 0 320 200" role="img" aria-label="아기띠 T.I.C.K.S.: 얼굴이 보이고 입 맞출 높이, 턱이 가슴에 붙지 않고, 다리는 무릎이 엉덩이보다 높은 M자">
+    <g filter="url(#pencil)">
+      <circle cx="160" cy="30" r="20" fill="#F8D5BC" class="fl"/>
+      <rect x="112" y="52" width="96" height="124" rx="30" fill="#BFDDF3" class="fl"/>
+      <path d="M138 74q-14-10-18-22M182 74q14-10 18-22" class="ln"/>
+      <rect x="130" y="72" width="60" height="78" rx="22" fill="#FBE7A6" class="fl"/>
+      <path d="M146 146L120 116L116 148M174 146L200 116L204 148" style="fill:none;stroke:#F8D5BC;stroke-width:9;stroke-linecap:round;stroke-linejoin:round"/>
+      <circle cx="116" cy="150" r="5" fill="#F4A6A6" class="fl"/><circle cx="204" cy="150" r="5" fill="#F4A6A6" class="fl"/>
+      <circle cx="160" cy="80" r="16" fill="#F8D5BC" class="fl"/>
+      <path d="M154 78q3-3 6 0M166 78q3-3 6 0M156 86q4 3 8 0" class="ln"/><circle cx="150" cy="84" r="2.4" fill="#F4A6A6"/><circle cx="170" cy="84" r="2.4" fill="#F4A6A6"/>
+    </g>
+    <text x="8" y="66">얼굴이 항상 보이게</text><text x="8" y="84">입 맞출 높이</text>
+    <text x="312" y="66" text-anchor="end">턱 밑에 손가락 1개</text><text x="312" y="84" text-anchor="end">등을 받쳐 밀착</text>
+    <text x="160" y="194" text-anchor="middle" class="b">무릎이 엉덩이보다 높은 M자 다리</text>
+  </svg><figcaption>4개월 미만·조산아는 특히 자주 확인. 수유 후엔 머리를 다시 위로. 다리가 일자로 늘어지는 좁은 시트는 피합니다. <a href="https://www.healthychildren.org/English/safety-prevention/on-the-go/Pages/Baby-Carriers.aspx">AAP</a></figcaption></figure>
   <h3>10. 영아 CPR·기도 막힘: 수업이 원칙, 요약은 이것</h3>
   <div class="box warn tip">
     <ul>
@@ -1531,6 +1702,20 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     </ul>
   </div>
 
+  <figure class="ill"><svg viewBox="0 0 320 160" role="img" aria-label="영아 CPR 압박 위치: 유두선 바로 아래 가슴 중앙을 두 손가락으로 4 cm 깊이, 분당 100~120회, 30대 2">
+    <g filter="url(#pencil)">
+      <circle cx="62" cy="78" r="28" fill="#F8D5BC" class="fl"/>
+      <path d="M52 74q4-3 8 0M66 74q4-3 8 0" class="ln"/>
+      <rect x="92" y="48" width="160" height="60" rx="22" fill="#F9C2B4" class="fl"/>
+      <circle cx="150" cy="70" r="3" fill="#E59A86"/><circle cx="200" cy="70" r="3" fill="#E59A86"/>
+      <rect x="168" y="40" width="8" height="46" rx="4" fill="#F8D5BC" class="fl"/><rect x="178" y="40" width="8" height="46" rx="4" fill="#F8D5BC" class="fl"/>
+    </g>
+    <path d="M140 70h70" class="ln" style="stroke-width:1.2;stroke-dasharray:4 3"/>
+    <path d="M210 44v22M204 60l6 8 6-8" class="ln" style="stroke-width:1.8"/>
+    <text x="312" y="128" text-anchor="end">유두선 바로 아래, 가슴 중앙</text>
+    <text x="312" y="144" text-anchor="end">두 손가락 또는 두 엄지</text>
+    <text x="160" y="24" text-anchor="middle" class="b">4 cm 깊이 · 분당 100~120회 · 30회 압박 : 2회 호흡</text>
+  </svg><figcaption>반응·호흡이 없으면 911(스피커폰) 먼저. 기도 막힘은 등 두드리기 5회 → 가슴 밀기 5회 반복. 수업에서 직접 배우세요.</figcaption></figure>
   <h3>11. 응급 번호</h3>
   <div class="tbl"><table>
     <tr><th>상황</th><th>번호</th><th>비고</th></tr>
@@ -2066,6 +2251,18 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
   </ol>
   <p class="small muted">출처: <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Changing-Diapers.aspx">AAP 기저귀 갈기</a> <a class="src" href="https://kidshealth.org/en/parents/guide-parents.html">KidsHealth 신생아 가이드</a></p>
 
+  <figure class="ill"><svg viewBox="0 0 320 160" role="img" aria-label="기저귀 앞단을 접어 탯줄을 밖으로 내고, 여아는 앞에서 뒤로 닦기">
+    <g filter="url(#pencil)">
+      <rect x="40" y="16" width="110" height="118" rx="34" fill="#F8D5BC" class="fl"/>
+      <rect x="40" y="88" width="110" height="46" rx="12" fill="#FBE7A6" class="fl"/>
+      <rect x="40" y="88" width="110" height="14" rx="6" fill="#F3D98A" class="fl"/>
+      <ellipse cx="95" cy="72" rx="4" ry="6" fill="#B08A6E" class="fl"/>
+      <ellipse cx="240" cy="80" rx="44" ry="56" fill="#F8D5BC" class="fl"/>
+    </g>
+    <path d="M240 44v70M231 104l9 10 9-10" class="ln" style="stroke-width:3"/>
+    <text x="95" y="152" text-anchor="middle">앞단을 접어 내려 탯줄이 밖으로</text>
+    <text x="240" y="36" text-anchor="middle">앞</text><text x="240" y="152" text-anchor="middle">뒤 (여아는 앞 → 뒤로만)</text>
+  </svg><figcaption>탯줄이 떨어질 때까지(1~3주) 기저귀 앞단을 접거나 NB 사이즈의 배꼽 커팅을 씁니다. 남아는 새 기저귀를 채울 때 음경을 아래로.</figcaption></figure>
   <h3>2. 횟수·사이즈·브랜드</h3>
   <ul>
     <li>신생아는 하루 8~12회, 주 약 70개. <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Changing-Diapers.aspx">AAP</a></li>
@@ -2193,6 +2390,22 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
     <li>비누는 소량, 중성 pH, 무향. 쓰면 바로 헹굽니다. 끝나면 바로 수건으로 감싸 톡톡 두드려 말리고, 건조하면 무향 보습제.</li>
     <li><strong>절대 혼자 두지 않기.</strong> 전화·초인종이 울리면 아기를 수건에 싸서 데리고 갑니다. 아기는 몇 cm 물에서도 익사합니다.</li>
   </ol>
+  <figure class="ill"><svg viewBox="0 0 320 176" role="img" aria-label="통목욕: 물은 5 cm, 한 손으로 머리와 목을 받치고, 팔꿈치로 온도 확인">
+    <g filter="url(#pencil)">
+      <path d="M30 70h260l-18 80H48z" fill="#E3F1FA" class="fl"/>
+      <path d="M46 112c20-6 40 6 60 0s40-6 60 0 40 6 60 0 30-6 48 0v38H56z" fill="#BFDDF3" class="fl"/>
+      <ellipse cx="160" cy="120" rx="40" ry="14" fill="#F9C2B4" class="fl"/>
+      <path d="M18 92q40 2 76 14" style="fill:none;stroke:#F8D5BC;stroke-width:13;stroke-linecap:round"/>
+      <ellipse cx="96" cy="106" rx="11" ry="7" fill="#F8D5BC" class="fl"/>
+      <circle cx="110" cy="96" r="16" fill="#F8D5BC" class="fl"/>
+      <path d="M104 94q3-3 6 0M114 94q3-3 6 0M106 102q4 3 8 0" class="ln"/>
+      <path d="M36 22l26 10-16 18" style="fill:none;stroke:#F8D5BC;stroke-width:11;stroke-linecap:round;stroke-linejoin:round"/>
+    </g>
+    <path d="M296 112v38M290 112h12M290 150h12" class="ln" style="stroke-width:1.4"/>
+    <text x="312" y="134" text-anchor="end" class="b">5 cm</text>
+    <text x="80" y="34">팔꿈치·손목으로 온도 확인</text><text x="80" y="52">37~38°C · 온수기는 49°C 이하</text>
+    <text x="160" y="170" text-anchor="middle">한 손은 항상 머리·목을 받치고, 단 한 순간도 혼자 두지 않기</text>
+  </svg><figcaption>얼굴·머리 → 몸 위에서 아래로 → 기저귀 부위 순서로 5~10분. 흐르는 수돗물 아래에서는 씻기지 않습니다.</figcaption></figure>
   <p>지루성 두피(cradle cap): 치료가 필요 없는 경우가 대부분. 격일 순한 샴푸, 부드러운 솔로 각질 떼기, 심하면 미네랄오일·코코넛오일·바셀린을 밤새 바르고 아침에 감기기. 긁어 떼지 않습니다. 진물·고름·냄새·몸 전체 발진이면 소아과. <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Cradle-Cap.aspx">AAP</a></p>
   <div class="box note"><h4>한국 자료와 다른 점</h4><p>서울아산병원 영상은 탯줄을 매일 알코올 솜으로 소독하고 실내 26~28°C를 권하지만, AAP는 "깨끗하고 마르게만, 알코올 불필요", 실내는 과열 금지(20~22°C, 목욕하는 동안만 잠깐 따뜻하게)입니다. 미국 소아과 지시를 따르세요. 한국 조부모께는 "여기 병원이 이렇게 하라고 했다"로 설명하면 쉽습니다.</p></div>
 
@@ -2439,6 +2652,201 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
 
   <div class="done-row"><button type="button" class="done-btn" data-day="13">Day 13 공부 완료</button><div class="nav2"><button type="button" class="btn" data-go="12">← Day 12</button><button type="button" class="btn" data-go="14">Day 14 →</button></div></div>
 </section></div>
+<div id="pane-qa" class="pane" data-pane="qa" hidden>
+<section class="hero">
+  <div>
+    <div class="eyebrow">Q&amp;A</div>
+    <div class="big">처음 부모들이 제일 많이 묻는 것</div>
+    <p class="lead">미국 소아과(AAP·CDC·Kaiser)와 한국 자료에서 답을 찾아 짧게 정리했습니다. 답 끝의 출처 칩과 Day 버튼으로 근거와 자세한 수업으로 갈 수 있습니다.</p>
+    <div class="qa-search"><input type="search" id="qa-q" placeholder="검색: 열, 분유, 황달, 기저귀, 여권…" autocomplete="off"><span class="small muted" id="qa-n"></span></div>
+  </div>
+  <svg class="art" aria-hidden="true"><use href="#i-q"/></svg>
+</section>
+<div class="chips qa-cats">
+  <button type="button" class="chip qa-cat on" data-cat="">전체</button>
+  <button type="button" class="chip qa-cat" data-cat="newborn">첫 주·신생아</button>
+  <button type="button" class="chip qa-cat" data-cat="feed">모유·분유</button>
+  <button type="button" class="chip qa-cat" data-cat="sleep">수면</button>
+  <button type="button" class="chip qa-cat" data-cat="cry">울음·발달</button>
+  <button type="button" class="chip qa-cat" data-cat="care">기저귀·목욕·피부</button>
+  <button type="button" class="chip qa-cat" data-cat="sick">열·아플 때</button>
+  <button type="button" class="chip qa-cat" data-cat="vax">예방접종</button>
+  <button type="button" class="chip qa-cat" data-cat="solid">이유식·치아</button>
+  <button type="button" class="chip qa-cat" data-cat="safety">안전·외출</button>
+  <button type="button" class="chip qa-cat" data-cat="parent">엄마·아빠</button>
+  <button type="button" class="chip qa-cat" data-cat="admin">서류·행정</button>
+</div>
+<section class="qa-group" data-cat="newborn"><h3>첫 주 · 신생아 모습</h3>
+<details class="qa" data-cat="newborn"><summary>태어나자마자 바로 안을 수 있나요? 아빠도 되나요?</summary><div class="qa-a"><p>네. 기저귀만 채운 아기를 맨 가슴에 올리는 피부접촉(skin-to-skin)을 첫 1시간 동안 하는 것이 기본이고, 체온·혈당·심박 안정과 첫 수유에 도움이 됩니다. 엄마가 못 하면 아빠가 해도 같은 효과입니다. 졸릴 때는 하지 않습니다(같이 잠들면 위험).</p><p class="qa-r"><a class="src" href="https://my.clevelandclinic.org/health/treatments/12578-kangaroo-care">Cleveland Clinic</a> <a class="src" href="https://mydoctor.kaiserpermanente.org/mas/article/skin-to-skin-time-1611867">Kaiser</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>비타민K 주사, 안연고, B형간염 접종을 꼭 해야 하나요?</summary><div class="qa-a"><p>네, 셋 다 미국(AAP)과 한국(질병관리청) 공통 권고입니다. 비타민K를 안 맞으면 생후 1주~6개월의 뇌출혈성 출혈이 81배 흔해지고, 안연고는 캘리포니아에서 법적 의무이며, B형간염 출생 접종은 영아기 감염의 90% 만성화를 막는 안전망입니다. 2026년 연방 권고 논란이 있지만 캘리포니아·Kaiser는 출생 접종을 유지합니다.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/ncbddd/vitamink/facts.html">CDC</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/prenatal/delivery-beyond/Pages/Erythromycin-Ointment.aspx">AAP</a> <a class="src" href="https://www.aap.org/en/patient-care/hepatitis-b/hepatitis-b-vaccine-frequently-asked-questions/">AAP HepB</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>체중이 태어났을 때보다 줄었어요. 괜찮은 건가요?</summary><div class="qa-a"><p>생후 며칠간 출생체중의 7~10%까지 빠지는 것은 정상이고 대개 생후 2주쯤 회복합니다. 퇴원 후 48시간 안에 소아과에서 체중을 확인하는 것이 AAP 권고이고 Kaiser는 보통 생후 3~5일에 첫 방문을 잡습니다.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/grownewborn.html">KidsHealth</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/How-to-Tell-if-Baby-is-Getting-Enough-Milk.aspx">AAP</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>황달이 있대요. 햇빛을 쬐면 좋아지나요?</summary><div class="qa-a"><p>햇빛에 두는 것은 AAP가 안전하지 않다고 합니다. 만삭아의 60~85%가 생리적 황달을 겪고 1~2주에 좋아지며, 치료가 필요하면 광선치료를 합니다. 생후 24시간 안에 노래지거나, 배·팔다리·발바닥까지 번지거나, 잘 안 깨고 안 먹으면 바로 진료입니다. 모유수유를 8~12회로 계속하는 것이 도움이 됩니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/Pages/Jaundice.aspx">AAP</a> <a class="src kr" href="https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=32022">서울아산병원</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>얼굴에 좁쌀 같은 흰 점·붉은 여드름이 났어요.</summary><div class="qa-a"><p>비립종(milia)과 신생아 여드름은 흔하고 몇 주 안에 사라집니다. 짜거나 문지르지 말고 물로만 닦으세요. 벼룩 물린 듯한 붉은 바탕의 노란 점(중독성 홍반)도 절반의 아기에게 생겼다 1주면 없어집니다.</p><p class="qa-r"><a class="src" href="https://medlineplus.gov/ency/article/002301.htm">MedlinePlus</a> <a class="src" href="https://kidshealth.org/en/parents/newborn-variations.html">KidsHealth</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>엉덩이·등에 푸른 멍 같은 게 있어요.</summary><div class="qa-a"><p>몽고반점(dermal melanocytosis)입니다. 아시아계 아기 대부분에게 있고 수년에 걸쳐 옅어집니다. 미국 의료진은 멍과 구분해 차트에 기록하니 걱정하지 않아도 됩니다.</p><p class="qa-r"><a class="src" href="https://www.stanfordchildrens.org/en/topic/default?id=newborn-appearance-90-P02691">Stanford Children's</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>딸꾹질·재채기를 너무 많이 해요. 감기인가요?</summary><div class="qa-a"><p>둘 다 신생아에게 흔하고 질병이 아닙니다. 재채기는 코가 좁아서 나는 것이지 감기가 아닙니다. 열, 빠른 호흡, 잘 안 먹는 것이 같이 있을 때만 문제입니다.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/newborn-variations.html">KidsHealth</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>머리 숨구멍(대천문)이 뛰어요. 만져도 되나요?</summary><div class="qa-a"><p>맥박처럼 뛰는 것은 정상이고 살살 만져도 됩니다. 뒤쪽은 약 6개월, 앞쪽은 12~18개월에 닫힙니다. 숨구멍이 심하게 부풀거나 푹 꺼지면(탈수) 진료 대상입니다.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/newborn-variations.html">KidsHealth</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>눈이 사시처럼 보여요.</summary><div class="qa-a"><p>초점 조절이 미숙해서 2~3개월까지는 흔합니다. 4개월이 지나도 한쪽 눈이 계속 돌아가 있으면 검진 때 말하세요.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/newborn-variations.html">KidsHealth</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>여아 기저귀에 피가 조금 묻었어요. / 가슴이 부풀었어요.</summary><div class="qa-a"><p>엄마 에스트로겐의 영향으로 며칠간 흰 분비물이나 소량의 혈성 분비물(가성 월경)이 나올 수 있고, 남녀 모두 가슴이 커지고 젖이 비칠 수 있습니다. 수 주 안에 사라집니다. 짜지 마세요.</p><p class="qa-r"><a class="src" href="https://www.stanfordchildrens.org/en/topic/default?id=newborn-appearance-90-P02691">Stanford</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>탯줄은 언제 떨어지고, 소독은 어떻게 하나요?</summary><div class="qa-a"><p>보통 1~2주(늦어도 3주)에 떨어집니다. AAP 기준은 알코올 소독 없이 깨끗하고 마르게 두는 것이고, 기저귀 앞단을 접어 탯줄 아래로 내립니다. 밑동 주변이 붉어지거나 고름·악취가 나거나 피가 계속 나면 당일 진료. 한국 병원 영상의 매일 알코올 소독은 미국 지침과 다릅니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Umbilical-Cord-Care.aspx">AAP</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>자다가 몇 초씩 숨을 멈춰요.</summary><div class="qa-a"><p>5~10초 멈췄다가 빠르게 쉬는 주기성 호흡은 생후 2~4주에 가장 흔하고 6개월쯤 사라집니다. 피부색·심박 변화가 없으면 정상입니다. 10초 이상(특히 20초 이상) 멈추거나 입술·얼굴이 파랗거나 회색이면 911입니다.</p><p class="qa-r"><a class="src" href="https://my.clevelandclinic.org/health/symptoms/periodic-breathing">Cleveland Clinic</a> <a class="src" href="https://www.stanfordchildrens.org/en/topic/default?id=breathing-problems-90-P02666">Stanford</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>신생아 선별검사가 "양성"이라고 연락이 왔어요.</summary><div class="qa-a"><p>양성은 진단이 아니라 "추가검사가 필요하다"는 뜻입니다. 캘리포니아 선별검사는 80종 이상을 한 번에 거르기 때문에 재검에서 정상으로 나오는 경우가 많습니다. 안내된 재검 일정을 미루지 마세요.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/Pages/Newborn-Screening-Tests.aspx">AAP</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>포경수술을 해야 하나요?</summary><div class="qa-a"><p>부모의 선택입니다. AAP는 이익(요로감염·일부 성병 감소)이 위험보다 크다고 보지만 모든 아기에게 권고하지는 않습니다. 하지 않으면 포피를 절대 뒤로 젖히지 말고 겉만 씻습니다. 하면 1주 정도 바셀린·거즈로 관리합니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/prenatal/decisions-to-make/Pages/Circumcision.aspx">AAP</a> <a class="src" href="https://healthy.kaiserpermanente.org/northern-california/health-wellness/healtharticle.circumcision">Kaiser</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+<details class="qa" data-cat="newborn"><summary>첫 소아과는 언제 가나요? 뭘 물어보나요?</summary><div class="qa-a"><p>퇴원 후 48시간 이내(Kaiser는 보통 생후 3~5일). 체중 회복, 황달, 수유, 탯줄을 봅니다. 물어볼 것: 빌리루빈 수치와 재검 시점, RSV 항체주사 여부, 밤에 전화할 번호, 다음 방문 날짜.</p><p class="qa-r"><a class="src" href="https://healthy.kaiserpermanente.org/health-wellness/healtharticle.pediatric-care">Kaiser</a> <button type="button" class="src go" data-go="1">Day 1</button></p></div></details>
+</section>
+
+<section class="qa-group" data-cat="feed"><h3>모유 · 분유</h3>
+<details class="qa" data-cat="feed"><summary>젖이 안 나오는 것 같아요. 분유를 줘야 하나요?</summary><div class="qa-a"><p>처음 며칠은 양이 적은 초유가 정상이고 젖은 생후 2~5일에 돕니다. 자주(8~12회) 물리는 것이 양을 늘리는 방법입니다. 생후 5일 이후 젖은 기저귀가 하루 6개 미만이거나 체중이 계속 빠지면 소아과·수유 상담사(IBCLC)와 상의해 보충을 결정합니다. Kaiser NCAL 24시간 수유 상담 1-866-454-8855.</p><p class="qa-r"><a class="src" href="https://www.stanfordchildrens.org/en/topic/default?id=breastfeeding-getting-started-90-P02637">Stanford</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/How-to-Tell-if-Baby-is-Getting-Enough-Milk.aspx">AAP</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>얼마나 자주, 얼마나 오래 먹여야 하나요?</summary><div class="qa-a"><p>24시간에 8~12회, 아기가 원할 때마다. 한쪽 젖은 스스로 놓을 때까지(보통 10~15분 이상) 먹이고 반대쪽을 권합니다. 시계를 보고 끊으면 지방이 많은 뒷젖을 못 먹습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/How-Often-to-Breastfeed.aspx">AAP</a> <a class="src kr" href="https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6586">질병관리청</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>자는 아기를 깨워서 먹여야 하나요?</summary><div class="qa-a"><p>출생체중을 회복하기 전(보통 첫 2주)에는 낮 2~3시간, 밤 4시간을 넘기면 깨워서 먹입니다. 체중이 잘 늘면 그 뒤로는 스스로 깰 때 먹여도 됩니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/How-Often-to-Breastfeed.aspx">AAP</a> <a class="src" href="https://kidshealth.org/en/parents/sleepnewborn.html">KidsHealth</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>잘 먹고 있는지 어떻게 알 수 있나요?</summary><div class="qa-a"><p>생후 5일 이후 하루 젖은 기저귀 6개 이상, 노란 변 3~4회 이상, 생후 3~5일부터 하루 15~30 g 체중 증가가 증거입니다. 수유 시간이나 가슴 느낌은 기준이 아닙니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/How-to-Tell-if-Baby-is-Getting-Enough-Milk.aspx">AAP</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>젖꼭지가 너무 아파요.</summary><div class="qa-a"><p>대부분 얕게 물린 것이 원인입니다. 입을 크게 벌린 순간 유륜까지 깊게 물리고, 뗄 때는 새끼손가락으로 흡인을 풀어 주세요. 비누로 닦지 말고 수유 후 젖을 조금 발라 말립니다. 의료용 라놀린은 가능, 일반 크림은 소용없습니다. 갈라지면 IBCLC에게.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/ensuring-proper-latch-on.aspx">AAP 젖물리기</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/Treating-Breast-Pain.aspx">AAP 통증</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>가슴이 돌처럼 단단하고 아파요(울혈). 유선염은 어떻게 알죠?</summary><div class="qa-a"><p>울혈은 젖 돌 때(3~5일) 흔합니다. 자주 먹이고, 수유 전 따뜻한 찜질, 사이사이 냉찜질, 진통제. 한 부위가 붉고 뜨겁고 아프면서 38.3°C 이상 열·몸살이 나면 유선염이니 당일 진료합니다. 유선염이어도 수유는 계속하는 것이 치료입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/Engorgement.aspx">AAP</a> <a class="src" href="https://www.nhs.uk/conditions/mastitis/">NHS</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>유축은 언제부터? 모유는 얼마나 보관할 수 있나요?</summary><div class="qa-a"><p>아기가 직접 잘 먹고 체중이 늘면 서두를 필요가 없고, 떨어져 있거나 보충이 필요하면 바로 시작합니다. 보관(CDC): 실온 4시간, 냉장 4일, 냉동 6개월(최대 12개월). 해동한 모유는 24시간 안에, 재냉동 금지, 전자레인지 금지. 한국 질병관리청 기준(실온 8~10시간, 냉장 8일)보다 보수적인 CDC를 따르세요.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/breastfeeding/breast-milk-preparation-and-storage/handling-breastmilk.html">CDC</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>Kaiser에서 유축기를 무료로 주나요?</summary><div class="qa-a"><p>대부분의 Kaiser 플랜이 전동 유축기를 제공합니다. 출산 후 자동전화 1-877-291-5204에 산모 MRN·아기 생년월일·배송지를 입력하면 2~3영업일 내 배송되며 출산 후 180일 안에 신청해야 합니다(San Mateo County 직원 안내 기준이니 플랜은 Member Services에서 확인).</p><p class="qa-r"><a class="src" href="https://www.smcgov.org/hr/kaiser-health-plan-members-how-get-your-free-breastpump">SMC HR 안내</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>분유는 어떤 걸 사야 하나요? Costco 분유도 괜찮나요?</summary><div class="qa-a"><p>미국에서 파는 모든 분유(Kirkland 같은 스토어 브랜드 포함)는 같은 FDA 영양 기준을 충족하므로 일반 우유 기반 분유끼리는 바꿔 먹여도 됩니다. 철분 강화 제품만 고르고, 가수분해·아미노산 같은 특수 분유는 의사와 상의합니다. 유럽 분유(HiPP, Holle) 온라인 직구는 AAP가 권하지 않습니다.</p><p class="qa-r"><a class="src" href="https://www.fda.gov/food/infant-formula-homepage/infant-formulas-marketed-us">FDA</a> <a class="src" href="https://www.healthychildren.org/English/tips-tools/ask-the-pediatrician/Pages/Is-it-OK-to-buy-imported-formulas-online.aspx">AAP</a> <button type="button" class="src go" data-go="4">Day 4</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>분유 탈 때 물을 끓여야 하나요? 한국에선 미지근한 물에 타는데요.</summary><div class="qa-a"><p>생후 2개월 미만·미숙아·면역저하 아기는 가루 분유를 끓였다가 5분 식힌 물(약 70°C)로 타서 체온으로 식혀 먹이는 것이 CDC 권고입니다(Cronobacter 예방). 2개월이 지나고 건강하면 실온 수돗물로 타도 됩니다. 물을 먼저 붓고 가루를 나중에, 스쿱은 깎아서, 전자레인지 금지.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/infant-toddler-nutrition/formula-feeding/preparation-and-storage.html">CDC</a> <a class="src" href="https://www.cdc.gov/cronobacter/prevention/index.html">CDC Cronobacter</a> <button type="button" class="src go" data-go="4">Day 4</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>분유는 얼마나 줘야 하나요?</summary><div class="qa-a"><p>생후 1주 1회 30~60 mL, 2~4주 60~90 mL, 1~2개월 90~120 mL, 4~6개월 150~210 mL 정도이며 하루 총량은 체중 1 kg당 약 165 mL(1 lb당 2.5 oz)가 경험칙입니다. 하루 950 mL(32 oz)를 넘기지 않는 것이 보통입니다. 억지로 다 먹이지 말고 배부름 신호(젖꼭지 밀어내기, 고개 돌리기)를 따르세요.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Amount-and-Schedule-of-Formula-Feedings.aspx">AAP</a> <button type="button" class="src go" data-go="4">Day 4</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>먹다 남은 분유를 다시 줘도 되나요?</summary><div class="qa-a"><p>안 됩니다. 먹기 시작한 분유는 1시간 안에 끝내고 남은 것은 버립니다(침이 섞여 세균 번식). 조제 후 안 먹인 분유는 실온 2시간, 냉장 24시간까지입니다.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/infant-toddler-nutrition/formula-feeding/preparation-and-storage.html">CDC</a> <button type="button" class="src go" data-go="4">Day 4</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>젖병은 매번 소독해야 하나요?</summary><div class="qa-a"><p>매 수유 후 전용 대야·솔로 세척하고 공기 건조는 매번. 소독(끓이기 5분, 스팀, 식기세척기 sanitize)은 생후 2개월 미만·미숙아는 하루 1회, 건강한 2개월 이상은 꼼꼼히 씻으면 매일 소독이 필수는 아닙니다.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/hygiene/about/clean-sanitize-store-infant-feeding-items.html">CDC</a> <button type="button" class="src go" data-go="4">Day 4</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>트림을 안 해요. 꼭 시켜야 하나요?</summary><div class="qa-a"><p>분유는 60~90 mL마다, 모유는 젖 바꿀 때 시도하되, 몇 분 두드려도 안 나오면 그냥 계속 먹여도 됩니다. 자세는 어깨에 세워 안기, 무릎에 앉혀 턱 받치기, 무릎에 엎어 머리 높이기 세 가지입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/baby-burping-hiccups-and-spit-up.aspx">AAP</a> <button type="button" class="src go" data-go="4">Day 4</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>자꾸 게워요. 분유를 바꿔야 하나요?</summary><div class="qa-a"><p>소량이 힘없이 흘러나오고 아기가 편안하며 체중이 늘면 정상 게움(spit-up)이고 분유를 바꿀 이유가 아닙니다. 소량씩 자주, 중간 트림, 수유 후 20~30분 세워 안기로 줄입니다. 매 수유 후 분수처럼 뿜거나, 녹색·피 섞인 토, 체중 정체, 젖은 기저귀 감소면 즉시 연락합니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/Why-Babies-Spit-Up.aspx">AAP</a> <button type="button" class="src go" data-go="4">Day 4</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>비타민 D와 철분은 꼭 먹여야 하나요?</summary><div class="qa-a"><p>모유·혼합 수유 아기는 생후 며칠부터 비타민 D 400 IU를 매일(분유도 하루 약 950 mL 미만이면). 철분은 모유 아기에게 4개월부터 1 mg/kg을 권해 왔는데 2026년 7월 AAP 개정판이 "6개월까지는 시작"으로 요약돼 있어 4개월 검진 때 소아과에 확인하세요. 한국 자료엔 비타민 D 언급이 적지만 미국 기준을 따르세요.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/healthy-living/nutrition/Pages/Vitamin-D-On-the-Double.aspx">AAP 비타민 D</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/Vitamin-Iron-Supplements.aspx">AAP 철분</a> <button type="button" class="src go" data-go="3">Day 3</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>모유수유 중 커피·술은요? 미역국은 많이 먹어도 되나요?</summary><div class="qa-a"><p>카페인 하루 300 mg(커피 2~3잔) 이하는 대체로 괜찮습니다. 술은 안 마시는 것이 가장 안전하고, 마시면 1잔당 2시간 뒤 수유. "짜서 버리기"는 알코올 배출을 앞당기지 않습니다. 미역국은 요오드가 많아 식약처가 하루 2회 이내, 다시마 육수 대신 다른 재료를 권합니다.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/breastfeeding-special-circumstances/hcp/diet-micronutrients/maternal-diet.html">CDC 식단</a> <a class="src" href="https://www.cdc.gov/breastfeeding-special-circumstances/hcp/vaccine-medication-drugs/alcohol.html">CDC 술</a> <a class="src kr" href="https://eiec.kdi.re.kr/policy/materialView.do?num=198148">식약처</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="feed"><summary>혼합수유를 하면 젖이 줄어드나요?</summary><div class="qa-a"><p>젖은 수요만큼 만들어지므로 젖을 거르는 만큼 줄 수 있습니다. 젖을 먼저 물리고 부족분만 분유로 주고, 분유를 준 끼니에는 가능하면 유축하면 공급을 유지할 수 있습니다. 젖병은 모유수유가 자리 잡은 3~4주 뒤 페이스드 방식으로 도입하면 젖병 선호를 줄입니다.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/infant-toddler-nutrition/breastfeeding/how-much-and-how-often.html">CDC</a> <button type="button" class="src go" data-go="4">Day 4</button></p></div></details>
+</section>
+
+<section class="qa-group" data-cat="sleep"><h3>수면</h3>
+<details class="qa" data-cat="sleep"><summary>엎드려 재우면 더 잘 자는데, 왜 안 되나요?</summary><div class="qa-a"><p>평소 등으로 자던 아기를 엎드리거나 옆으로 눕히면 돌연사(SIDS) 위험이 최대 45배입니다. 돌까지 모든 수면(낮잠 포함)을 등 대고 재우고, 스스로 양방향 뒤집기가 되면 자다 돌아눕는 것은 두되 처음 눕힐 땐 등으로. 역류 아기도 등 대고 평평하게가 원칙입니다.</p><p class="qa-r"><a class="src" href="https://safetosleep.nichd.nih.gov/reduce-risk/reduce">NIH Safe to Sleep</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/A-Parents-Guide-to-Safe-Sleep.aspx">AAP</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>부모 침대에서 같이 자면 안 되나요? 한국식 바닥 요는요?</summary><div class="qa-a"><p>AAP는 어떤 경우에도 침대 공유를 권하지 않고(4개월 미만·음주·흡연·푹신한 침구면 특히 위험), 같은 방 다른 침대를 최소 6개월 권합니다. 서울아산병원 자료도 "별도의 아기 침대나 요"입니다. 현실적 절충은 부모 침대나 요 옆에 플레이야드·배시넷을 두는 것입니다. 소파에서 같이 잠드는 것이 가장 위험합니다(최대 67배).</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/A-Parents-Guide-to-Safe-Sleep.aspx">AAP</a> <a class="src kr" href="https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=32841">서울아산병원</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>속싸개는 언제까지 해도 되나요?</summary><div class="qa-a"><p>뒤집기 조짐이 보이면 즉시 중단합니다. 이르면 생후 2개월, 보통 3~4개월입니다. 할 때는 등으로 눕히고, 가슴에 손가락 2~3개 여유, 엉덩이·다리는 굽히고 벌릴 수 있게. 가중(weighted) 담요·속싸개는 금지. 이후엔 팔이 자유로운 슬립색을 씁니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Swaddling-Is-it-Safe.aspx">AAP</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>이불·베개·범퍼·인형은 정말 하나도 안 되나요?</summary><div class="qa-a"><p>네. 몸에 맞는 시트 한 장만 깝니다. 패딩 범퍼와 경사 침대는 2022년부터 미국에서 판매 자체가 금지됐습니다. 머리 모양 베개도 질식 위험이 있고 효과 근거가 없습니다. 담요 대신 슬립색을 입힙니다.</p><p class="qa-r"><a class="src" href="https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Safe-Sleep-for-Babies-Act-Business-Guidance">CPSC</a> <a class="src" href="https://safetosleep.nichd.nih.gov/reduce-risk/reduce">NICHD</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>방 온도는 몇 도, 옷은 몇 겹이 맞나요? 겨울인데 추울까 봐요.</summary><div class="qa-a"><p>AAP 권장 실내 20~22°C, 옷은 어른보다 한 겹만 더, 실내 모자 금지. 땀·뜨거운 가슴·홍조가 과열 신호이고 과열은 SIDS 위험입니다. 한국 질병관리청은 22~24°C를 제시하니 숫자보다 "가슴·목 뒤를 만져 보기"가 공통 원칙입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/healthy-living/sleep/Pages/healthy-sleep-habits-how-many-hours-does-your-child-need.aspx">AAP</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>카시트·바운서·그네에서 잠들면 그냥 둬도 되나요?</summary><div class="qa-a"><p>아니요. 앉는 기구에서는 턱이 가슴으로 처져 기도가 막힐 수 있습니다. 카시트는 주행 중에만 쓰고, 잠들면 가능한 한 빨리 평평한 침대로 옮깁니다.</p><p class="qa-r"><a class="src" href="https://safetosleep.nichd.nih.gov/reduce-risk/reduce">NICHD</a> <a class="src" href="https://www.stanfordchildrens.org/en/topic/default?id=infant-sleep-90-P02237">Stanford</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>신생아는 얼마나 자나요? 밤낮이 바뀌었어요.</summary><div class="qa-a"><p>신생아는 하루 14~17시간을 1~2시간씩 끊어 자고 밤낮 구분이 없습니다. 낮엔 밝게·말 걸고, 밤엔 어둡고 조용히 수유하면 몇 주에 걸쳐 구분이 생깁니다. 일부러 낮에 안 재우는 것은 역효과입니다. 4~6개월에야 규칙적인 주기가 생깁니다.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/sleepnewborn.html">KidsHealth</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/getting-your-baby-to-sleep.aspx">AAP</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>밤중 수유는 언제까지 해야 하나요?</summary><div class="qa-a"><p>신생아는 체중이 잘 늘 때까지 3~4시간마다 깨워 먹입니다. 4~7개월이면 대부분 한밤중 수유가 더는 필요 없지만(모유 아기는 더 깰 수 있음) 끊는 시기는 체중·성장을 보고 소아과와 상의합니다.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/sleep47m.html">KidsHealth</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>수면교육(울려 재우기)은 언제부터? 아기에게 해롭지 않나요?</summary><div class="qa-a"><p>AAP는 4개월부터 바로 달려가지 않고 스스로 진정할 시간을 주기 시작하라고 하고, 퍼버법 같은 본격 수면교육은 약 6개월부터입니다. 6개월 미만에 울려 재우기를 적용한 연구는 없습니다. 6~16개월 무작위 시험에서 스트레스 호르몬·애착·행동 문제의 차이가 없었고 5년 추적에서도 해로운 영향이 없었습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/getting-your-baby-to-sleep.aspx">AAP</a> <a class="src" href="https://www.sleepfoundation.org/baby-sleep/ferber-method">Sleep Foundation</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>4개월인데 갑자기 밤에 자주 깨요.</summary><div class="qa-a"><p>수면이 어른처럼 깊은 잠/얕은 잠 주기로 바뀌는 "4개월 수면 퇴행"으로 보통 1~2주면 지납니다. 배고픔·기저귀·질병을 먼저 확인하고, 낮에 충분히 먹이고, 졸리지만 깨어 있을 때 눕힙니다.</p><p class="qa-r"><a class="src" href="https://health.clevelandclinic.org/the-4-month-sleep-regression-what-parents-need-to-know">Cleveland Clinic</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>공갈젖꼭지를 써도 되나요? 치아·젖 혼동은요?</summary><div class="qa-a"><p>낮잠·밤잠에 물려 주면 SIDS 위험이 줄어듭니다(잠든 뒤 빠져도 효과). 모유수유는 자리 잡은 뒤(3~4주, 한국 학회는 1개월 이후) 시작하고, 끈으로 묶지 말고, 거부하면 강요하지 않습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/crying-colic/Pages/Pacifiers-and-Thumb-Sucking.aspx">AAP</a> <a class="src kr" href="https://www.pediatrics.or.kr/bbs/index.html?code=infantcare&amp;category=A&amp;page=2&amp;number=8810&amp;mode=view">대한소아청소년과학회</a> <button type="button" class="src go" data-go="7">Day 7</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>스마트 양말·호흡 모니터를 사야 하나요?</summary><div class="qa-a"><p>가정용 심폐 모니터와 소비자용 스마트 양말은 SIDS 예방 근거가 없습니다. 써도 되지만 안전 수면 수칙을 대체하지 못하고, "SIDS 예방"을 내세운 제품은 모두 근거가 없습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/A-Parents-Guide-to-Safe-Sleep.aspx">AAP</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="sleep"><summary>터미타임은 언제부터 얼마나 하나요? 아기가 싫어해요.</summary><div class="qa-a"><p>깨어 있고 보호자가 볼 때만, 퇴원 당일부터 하루 2~3회 × 3~5분으로 시작해 생후 7주까지 하루 15~30분, 이후 총 1시간 정도까지 늘립니다. 기저귀 교체 후·낮잠 후가 좋고, 부모 가슴 위에 엎드리게 하는 것도 터미타임입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/Back-to-Sleep-Tummy-to-Play.aspx">AAP</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+</section>
+<section class="qa-group" data-cat="cry"><h3>울음 · 발달</h3>
+<details class="qa" data-cat="cry"><summary>하루에 얼마나 우는 게 정상인가요?</summary><div class="qa-a"><p>신생아는 1~4시간, 생후 2주부터 늘어 6~8주에 하루 약 3시간으로 정점, 3~4개월에 1~2시간으로 줍니다. 저녁 6시~자정에 몰리고 이유 없이, 달래도 안 되는 "PURPLE 울음기"는 정상 발달 단계입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/crying-colic/Pages/Colic.aspx">AAP</a> <a class="src" href="https://www.dontshake.org/purple-crying">NCSBS</a> <button type="button" class="src go" data-go="7">Day 7</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>영아산통(배앓이)인가요? 약이 있나요?</summary><div class="qa-a"><p>건강한 아기가 하루 3시간 이상, 주 3일 이상 우는 것이 영아산통이며 2~5주에 시작해 3~4개월에 좋아집니다. 처음엔 소아과에서 탈장·감염을 배제합니다. 가스약(simethicone)·그라이프워터는 효과가 입증되지 않았습니다.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/colic.html">KidsHealth</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/crying-colic/Pages/Responding-to-Your-Babys-Cries.aspx">AAP</a> <button type="button" class="src go" data-go="7">Day 7</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>울 때마다 안아 주면 버릇이 나빠지나요?</summary><div class="qa-a"><p>아니요. 생후 몇 달 동안 울음에 빨리 반응하는 것은 아기를 버릇없게 만들지 않고, 오히려 반응이 빠를수록 나중에 덜 운다는 것이 AAP의 설명입니다. 다만 다 해 봤고 건강해 보이면 안전하게 눕히고 몇 분 두는 것도 괜찮습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/crying-colic/Pages/Responding-to-Your-Babys-Cries.aspx">AAP</a> <button type="button" class="src go" data-go="7">Day 7</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>달래도 안 돼서 화가 납니다. 어떻게 해야 하나요?</summary><div class="qa-a"><p>아기를 담요·인형 없는 아기 침대에 등 대고 눕히고 방을 나와 10~15분 진정하세요(AAP). 울어도 괜찮습니다. 절대 흔들지 않습니다. 몇 초의 흔들림으로 뇌출혈·실명·사망이 생기고 울음이 가장 흔한 계기입니다. 배우자와 "지금 넘겨" 교대 신호를 정해 두세요.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Abusive-Head-Trauma-Shaken-Baby-Syndrome.aspx">AAP</a> <button type="button" class="src go" data-go="7">Day 7</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>5S가 뭔가요?</summary><div class="qa-a"><p>Swaddle(속싸개), Side/Stomach(옆·엎드려 안기, 안을 때만), Shush(쉬- 소리·백색소음), Swing(2~3 cm 작은 떨림, 세게 흔들지 않기), Suck(공갈젖꼭지·손). 자궁 환경을 흉내 내는 달래기 순서입니다. 그 전에 배고픔·기저귀·덥거나 추움·트림을 먼저 확인합니다.</p><p class="qa-r"><a class="src" href="https://www.happiestbaby.com/blogs/baby/the-5-s-s-for-soothing-babies">Happiest Baby</a> <button type="button" class="src go" data-go="7">Day 7</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>머리가 한쪽으로 납작해져요.</summary><div class="qa-a"><p>깨어 있을 때 터미타임을 하루 총 1시간까지 늘리고, 안을 때 팔을 바꾸고, 침대에서 머리 두는 방향을 매일 반대로 합니다. 카시트·바운서 시간을 줄입니다. 한쪽만 보는 사경이 같이 있으면 물리치료로 스트레칭. 중등도 이상이 5~6개월까지 안 좋아지면 헬멧 치료를 고려합니다. 짱구베개는 질식 위험이 있고 효과가 없습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/Cleft-Craniofacial/Pages/Positional-Skull-Deformities-and-Torticollis.aspx">AAP</a> <button type="button" class="src go" data-go="2">Day 2</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>언제 웃고, 뒤집고, 앉고, 걷나요?</summary><div class="qa-a"><p>사회적 미소 약 2개월, 고개 가누기 4개월, 뒤집기 4~6개월, 혼자 앉기 6~9개월, 기기 7~10개월(건너뛰기도 함), 잡고 서기 9~12개월, 혼자 걷기 9~15개월. CDC 2022 체크리스트는 "75% 이상의 아기가 그 월령까지 하는 것" 기준이라 범위가 넓습니다.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/act-early/milestones/index.html">CDC</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>발달이 느린 것 같아요. 기다려도 되나요?</summary><div class="qa-a"><p>체크리스트의 항목을 하나라도 못 하거나, 하던 것을 못 하게 되면 "기다리지 말고" 소아과에 발달 선별검사를 요청하세요. 캘리포니아 Early Start(출생~36개월)는 무료이고 부모가 직접 의뢰할 수 있습니다(BabyLine 800-515-2229, Redwood City는 Golden Gate Regional Center 650-524-4500).</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/act-early/milestones/index.html">CDC</a> <a class="src" href="https://www.dds.ca.gov/services/early-start/">Early Start</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>TV·유튜브를 보여 줘도 되나요? 한국 조부모와 영상통화는요?</summary><div class="qa-a"><p>AAP는 18개월 미만에서 영상통화 외 화면 시청을 피하라고 합니다. 영상통화는 예외입니다. 달래기·재우기·먹이기 용도로 화면을 쓰지 마세요.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/family-life/Media/Pages/Why-to-Avoid-TV-Before-Age-2.aspx">AAP</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>책은 언제부터 읽어 주나요? 한국어로 읽어도 되나요?</summary><div class="qa-a"><p>AAP 2024 정책은 출생 직후부터(NICU에서도) 함께 읽기를 권합니다. 종이책이 디지털보다 상호작용이 좋고, 신생아는 흑백·고대비 그림을 잠깐 봅니다. 부모가 편한 언어로 많이 들려주면 됩니다.</p><p class="qa-r"><a class="src" href="https://healthychildren.org/English/news/Pages/beyond-literacy-shared-reading-starting-in-infancy-offers-lifelong-benefits.aspx">AAP</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="cry"><summary>성장곡선 백분위가 낮아요. 작은 건가요?</summary><div class="qa-a"><p>낮은 백분위 자체가 문제가 아니라 자기 곡선을 따라가는지가 핵심입니다. 백분위 선을 크게 가로질러 떨어질 때 평가합니다. 미국(2세 미만 WHO 표준)과 한국 2017 성장도표(0~35개월 WHO)는 같은 기준입니다.</p><p class="qa-r"><a class="src" href="https://www.mymlc.com/health-information/faqs/i/infant-growth-whats-normal">Mayo Clinic Care Network</a> <a class="src" href="https://www.cdc.gov/growth-chart-training/hcp/using-growth-charts/who-using.html">CDC</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+</section>
+
+<section class="qa-group" data-cat="care"><h3>기저귀 · 목욕 · 피부</h3>
+<details class="qa" data-cat="care"><summary>변 색깔이 녹색이에요. 괜찮나요?</summary><div class="qa-a"><p>노랑·녹색·갈색은 모두 정상입니다(철분·감기·이유식 영향). 소아과에 연락할 색은 빨강(피), 생후 4일 이후의 검정, 흰색·회색·점토색(담도 문제, 지체 금지)입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/english/ages-stages/baby/pages/the-many-colors-of-poop.aspx">AAP</a> <button type="button" class="src go" data-go="5">Day 5</button></p></div></details>
+<details class="qa" data-cat="care"><summary>모유 아기가 며칠째 변을 안 봐요. 변비인가요?</summary><div class="qa-a"><p>생후 1개월 이후 모유 아기는 며칠~1주 변이 없어도 변이 부드러우면 정상입니다. 변비는 딱딱하고 힘든 변입니다. 다만 첫 1개월에 하루 1회 미만이면 모유 부족 신호일 수 있습니다. 딱딱한 변에 피, 10분 이상 힘줘도 안 나오면 전화.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Infant-Constipation.aspx">AAP</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/Pages/Pooping-By-the-Numbers.aspx">AAP</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="care"><summary>기저귀 발진은 어떻게 하나요?</summary><div class="qa-a"><p>자주 갈고(대변은 즉시), 톡톡 말리고, 하루 몇 번 공기 노출, 산화아연(Desitin 등)이나 바셀린을 두껍게 덧바릅니다. 파우더·시판 항생제 연고는 쓰지 않습니다. 선명하게 붉고 경계가 뚜렷하며 주변에 점이 있으면 곰팡이(칸디다)라 항진균제가 필요합니다. 2~3일에 안 좋아지거나 물집·고름·열이면 소아과.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Diaper-Rash.aspx">AAP</a> <button type="button" class="src go" data-go="5">Day 5</button></p></div></details>
+<details class="qa" data-cat="care"><summary>기저귀는 어떤 사이즈·브랜드를 사 둘까요?</summary><div class="qa-a"><p>N(뉴본)은 1~2팩만, 1호(3.6~6.4 kg)를 주력으로. 3.3 kg 아기는 2~4주 안에 1호로 갑니다. 허벅지 자국·새는지로 사이즈를 올립니다. Pampers Swaddlers(병원 기본), Huggies, Kirkland(Costco) 등은 피부 반응이 아기마다 달라 한 팩씩 시험하세요. 물티슈는 무향.</p><p class="qa-r"><a class="src" href="https://www.pampers.com/en-us/baby/diapers/article/diaper-size-and-weight-chart">Pampers</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Diapers-Disposable-or-Cloth.aspx">AAP</a> <button type="button" class="src go" data-go="5">Day 5</button></p></div></details>
+<details class="qa" data-cat="care"><summary>목욕은 얼마나 자주, 물은 몇 도로 하나요?</summary><div class="qa-a"><p>주 2~3회면 충분하고 매일 하면 피부가 마릅니다. 물은 5 cm(2인치)만, 온도는 손목·팔꿈치로 "따뜻하되 뜨겁지 않게"(약 37~38°C), 온수기는 49°C(120°F) 이하. 5~10분 안에 끝내고, 단 한 순간도 혼자 두지 않습니다. 목욕 의자는 안전장치가 아닙니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Bathing-Your-Newborn.aspx">AAP</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+<details class="qa" data-cat="care"><summary>탯줄이 떨어지기 전에는 어떻게 씻기나요?</summary><div class="qa-a"><p>물에 담그지 말고 스펀지 목욕으로 닦아 줍니다. 얼굴(비누 없이) → 주름 부위 → 몸 → 기저귀 부위 순서, 탯줄은 물로만 살짝 닦고 말립니다. 첫 목욕은 출생 24시간 이후(WHO)이며 병원에서 시켜 주고 방법을 보여 줍니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Bathing-Your-Newborn.aspx">AAP</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+<details class="qa" data-cat="care"><summary>로션을 매일 발라야 아토피를 막나요?</summary><div class="qa-a"><p>근거가 엇갈립니다. 2014년 소규모 시험은 효과가 있었지만 2020년 영국 BEEP 시험(1,394명)에서는 예방 효과가 없고 피부 감염이 늘었습니다. 건강한 피부엔 건조할 때 무향 보습제를 바르면 되고, 이미 습진이 있으면 매일 듬뿍 바르는 것이 치료의 핵심입니다.</p><p class="qa-r"><a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7086156/">BEEP 2020</a> <a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/skin/Pages/Eczema.aspx">AAP 습진</a> <button type="button" class="src go" data-go="5">Day 5</button></p></div></details>
+<details class="qa" data-cat="care"><summary>머리에 노란 딱지(비듬)가 생겼어요.</summary><div class="qa-a"><p>지루성 두피(cradle cap)로 무해합니다. 격일 순한 샴푸, 부드러운 솔로 각질 떼기, 심하면 미네랄오일·바셀린을 밤새 바르고 아침에 감깁니다. 긁어 떼지 마세요. 진물·고름·몸 전체 발진이면 소아과.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Cradle-Cap.aspx">AAP</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+<details class="qa" data-cat="care"><summary>손톱은 어떻게 깎나요? 손싸개는요?</summary><div class="qa-a"><p>목욕 후나 잠들었을 때 에머리보드(파일)·아기 손톱깎이로, 손끝 살을 눌러 깎고 모서리는 파일로. 입으로 물어뜯지 않습니다(감염). AAP·Nemours 모두 손싸개 대신 "손톱을 짧게"를 권합니다. 손싸개는 손 탐색·자기 진정을 막으니 꼭 필요할 때만 잠깐.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Nail-Care-Fingers-and-Toes.aspx">AAP</a> <a class="src" href="https://kidshealth.org/en/parents/trimming-nails.html">KidsHealth</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+<details class="qa" data-cat="care"><summary>귀지·코딱지는 면봉으로 파도 되나요?</summary><div class="qa-a"><p>안 됩니다. 귀·코는 바깥쪽만 닦습니다. 면봉을 안에 넣으면 손상·감염 위험이 있습니다. 코막힘은 식염수 몇 방울 뒤 벌브 흡입기로.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/earwax.html">KidsHealth</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+<details class="qa" data-cat="care"><summary>아기 옷은 따로 빨아야 하나요? 세제는요?</summary><div class="qa-a"><p>민감 피부가 아니면 가족 빨래와 분리할 필요가 없습니다. 무향·무염료 세제(Tide Free &amp; Gentle, All Free Clear, Dreft 등)로 바꾸고 섬유유연제·정전기 시트는 피합니다. 새 옷은 첫 착용 전 한 번 세탁.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/laundry.html">KidsHealth</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+<details class="qa" data-cat="care"><summary>가습기를 써도 되나요?</summary><div class="qa-a"><p>찬 안개(cool-mist)만 씁니다(온풍식은 화상). 매일 물을 비우고 말리고, 2~3일마다 세척, 증류수 사용, 침대에서 1 m 이상. 실내 습도는 30~50%가 이상적입니다.</p><p class="qa-r"><a class="src" href="https://www.chop.edu/news/health-tip/vaporizer-or-humidifier-which-best">CHOP</a> <a class="src" href="https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home">EPA</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+<details class="qa" data-cat="care"><summary>남아 소변이 자꾸 새요.</summary><div class="qa-a"><p>새 기저귀를 채울 때 음경을 아래로 향하게 하고, 다리 주름 밴드를 밖으로 빼고, 양쪽 탭을 대칭으로. 갈 때는 수건으로 덮어 두면 소변 분수를 막습니다. 자주 새면 사이즈를 올립니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Changing-Diapers.aspx">AAP</a> <button type="button" class="src go" data-go="5">Day 5</button></p></div></details>
+<details class="qa" data-cat="care"><summary>사타구니·목 주름이 빨개져요.</summary><div class="qa-a"><p>젖과 땀이 고이는 곳이라 목욕·기저귀 갈 때 꼼꼼히 닦고 톡톡 두드려 완전히 말립니다. 기저귀 부위는 산화아연·바셀린. 선명하게 붉고 경계가 뚜렷하면 칸디다 가능성이라 소아과.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/bathing-skin-care/Pages/Bathing-Your-Newborn.aspx">AAP</a> <button type="button" class="src go" data-go="6">Day 6</button></p></div></details>
+</section>
+
+<section class="qa-group" data-cat="sick"><h3>열 · 아플 때</h3>
+<details class="qa" data-cat="sick"><summary>체온은 어디로 재나요? 몇 도부터 열인가요?</summary><div class="qa-a"><p>3개월 미만은 직장 체온이 표준입니다(디지털, 바셀린, 1.3 cm). 귀 체온계는 6개월 이후, 겨드랑이는 가장 부정확. 열은 직장 38.0°C(100.4°F) 이상이고, Kaiser는 36.4°C(97.5°F) 미만의 저체온도 "지금 전화" 항목입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/fever/Pages/How-to-Take-a-Childs-Temperature.aspx">AAP</a> <a class="src" href="https://healthy.kaiserpermanente.org/health-wellness/health-encyclopedia/he.when-to-call-for-problems-in-newborns-care-instructions.aco0315">Kaiser</a> <button type="button" class="src go" data-go="8">Day 8</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>생후 3개월 미만인데 38도예요. 해열제 먹이고 지켜봐도 되나요?</summary><div class="qa-a"><p>안 됩니다. 3개월 미만의 38.0°C 이상은 증상이 없어도 패혈증·수막염·요로감염 가능성 때문에 낮밤 상관없이 즉시 advice nurse에 전화하고 대개 응급실 평가를 받습니다. 해열제를 먼저 먹이지 않습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/fever/Pages/When-to-Call-the-Pediatrician.aspx">AAP</a> <a class="src" href="https://kidshealth.org/en/parents/fever.html">KidsHealth</a> <button type="button" class="src go" data-go="8">Day 8</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>타이레놀(아세트아미노펜)은 언제부터 얼마나 주나요?</summary><div class="qa-a"><p>12주 미만은 의사 지시 없이 금지. 그 이후 10~15 mg/kg을 4~6시간마다 하루 5회까지. 160 mg/5 mL 시럽 기준 2.7~5.3 kg 1.25 mL, 5.4~7.7 kg 2.5 mL, 8.2~10.4 kg 3.75 mL. 반드시 주사기로 mL 단위 계량. 이부프로펜은 6개월 이상, 아스피린은 절대 금지.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-home/medication-safety/Pages/Acetaminophen-for-Fever-and-Pain.aspx">AAP</a> <a class="src" href="https://www.stlouischildrens.org/health-resources/dosage-tables/acetaminophen-tylenol-dosage-table">용량표</a> <button type="button" class="src go" data-go="8">Day 8</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>감기약을 줘도 되나요? 코가 막혀 못 자요.</summary><div class="qa-a"><p>4세 미만 OTC 감기약은 금지(효과 없고 과량 위험). 식염수 1~2방울 뒤 벌브 흡입기나 NoseFrida로 수유 전·잠자기 전에만 몇 번, 가습기. 1주 지나도 안 좋아지거나 호흡이 빠르거나 열이 3일 이상이면 진료.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/flu/Pages/Caring-for-Your-Childs-Cold-or-Flu.aspx">AAP</a> <button type="button" class="src go" data-go="8">Day 8</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>응급실, urgent care, advice nurse 중 어디로 가야 하나요?</summary><div class="qa-a"><p>911: 호흡 멈춤 10초 이상, 입술·얼굴 청색, 경련, 깨울 수 없음, 축 늘어짐. 응급실·즉시 전화: 3개월 미만 발열, 호흡수 60회/분 이상·가슴 함몰·끙끙, 녹색·피 섞인 토, 매 수유 후 분수토, 탈수, 24시간 내 황달. 당일 진료: 3개월 이상 발열+증상, 열 24시간 이상, 잘 안 먹음. 나머지는 다음 검진 때. 애매하면 advice nurse가 분류해 줍니다.</p><p class="qa-r"><a class="src" href="https://healthy.kaiserpermanente.org/health-wellness/health-encyclopedia/he.when-to-call-for-problems-in-newborns-care-instructions.aco0315">Kaiser</a> <a class="src" href="https://www.stanfordchildrens.org/en/topic/default?id=breathing-problems-90-P02666">Stanford</a> <button type="button" class="src go" data-go="8">Day 8</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>RSV가 뭔가요? 어떻게 예방하나요?</summary><div class="qa-a"><p>2세 전 거의 모두 걸리는 호흡기 바이러스로 1세 미만 입원 1위, 3~5일째 가장 심합니다. 빠른 호흡, 콧구멍 벌렁, 끙끙, 가슴 함몰, 8시간에 기저귀 1개 미만이면 즉시 전화. 12월생은 시즌 한가운데라 엄마가 임신 중 Abrysvo를 맞지 않았다면 출생 1주 내 니르세비맙(Beyfortus) 항체주사(입원 80~90% 감소).</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/chest-lungs/Pages/RSV-When-Its-More-Than-Just-a-Cold.aspx">AAP</a> <a class="src" href="https://www.cdc.gov/rsv/hcp/vaccine-clinical-guidance/infants-young-children.html">CDC</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>설사를 해요. 지사제나 이온음료를 줘도 되나요?</summary><div class="qa-a"><p>모유·분유는 계속 주고, 2세 미만 지사제는 금지. 중등도 이상 탈수 징후면 시판 경구수액(Pedialyte 등)을 쓰고 주스·스포츠음료로 대체하지 않습니다. 혈변, 12~24시간 이상 구토, 초록·커피색 토, 6시간 소변 없음, 눈물 없음이면 진료.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/abdominal/Pages/Diarrhea.aspx">AAP</a> <a class="src" href="https://www.healthychildren.org/English/health-issues/injuries-emergencies/Pages/dehydration.aspx">AAP 탈수</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>분수처럼 토해요.</summary><div class="qa-a"><p>생후 2주~4개월에 매 수유 후 반복되는 분수형 구토는 유문협착증의 전형적 신호로 당일 진료(초음파·수술)가 필요합니다. 녹색(담즙)·피 섞인 토, 5~9개월에 발작적으로 울며 무릎 당기기와 건포도 젤리 같은 변(장중첩증)은 즉시 응급실.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/pyloric-stenosis.html">KidsHealth</a> <a class="src" href="https://kidshealth.org/en/parents/intussusception.html">KidsHealth</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>열이 나면서 몸을 떨고 눈이 돌아갔어요(열성 경련).</summary><div class="qa-a"><p>6개월~5세에 열과 함께 오는 열성 경련은 대개 수 분 안에 멈춥니다. 옆으로 눕히고, 입에 아무것도 넣지 말고, 붙잡지 말고, 시간을 잽니다. 5분 이상, 청색증·호흡곤란, 24시간 내 재발이면 911. 끝난 뒤 원인 확인 진료.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/febrile.html">KidsHealth</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>귀를 자꾸 잡아당겨요. 중이염인가요?</summary><div class="qa-a"><p>귀 잡아당기기만으로는 판단할 수 없습니다. 중이염은 밤에 심한 귀 통증, 발열, 수면 장애, 귀 진물이 신호이고 소아과가 귀를 봐야 압니다. 약 80%는 자연 호전되지만 2세 미만·중증은 항생제를 씁니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/ear-nose-throat/Pages/Ear-Infection-Information.aspx">AAP</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>입안에 닦이지 않는 흰 반점이 있어요.</summary><div class="qa-a"><p>아구창(thrush, 칸디다)입니다. 소아과에서 항진균제를 처방받고 젖꼭지·공갈젖꼭지를 소독하며, 모유수유 중이면 엄마 유두도 같이 치료합니다. 분유 찌꺼기는 닦이지만 아구창은 닦이지 않습니다.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/thrush.html">KidsHealth</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>침대에서 떨어졌어요.</summary><div class="qa-a"><p>바로 울고 평소처럼 행동하면 advice nurse에 전화해 상담하세요. 머리를 심하게 부딪힌 뒤 반복 구토, 처짐·깨우기 어려움, 경련, 숨구멍 부풀음, 의식 변화가 있으면 911입니다. 교환대·침대·소파 위에 한순간도 혼자 두지 않는 것이 예방입니다.</p><p class="qa-r"><a class="src" href="https://healthy.kaiserpermanente.org/health-wellness/health-encyclopedia/he.when-to-call-for-problems-in-newborns-care-instructions.aco0315">Kaiser</a> <a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Make-Babys-Room-Safe.aspx">AAP</a> <button type="button" class="src go" data-go="8">Day 8</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>Kaiser advice nurse 번호와 통역은요?</summary><div class="qa-a"><p>Kaiser Redwood City 소아과 advice/appointments 650-299-2015(24시간, 퇴원 시 재확인), Northern California 공통 1-866-454-8855, Member Services 1-800-464-4000. "Korean interpreter, please"라고 하면 무료 통역이 연결됩니다. 전화 전에 체온(화씨)·측정법·마지막 수유·기저귀 수를 적어 두세요.</p><p class="qa-r"><button type="button" class="src go" data-go="8">Day 8</button> <button type="button" class="src go" data-tabgo="english">Kaiser 영어 탭</button></p></div></details>
+<details class="qa" data-cat="sick"><summary>원인 없이 열만 나고 보채요.</summary><div class="qa-a"><p>영아 요로감염은 원인 모를 발열·보챔만 보이기도 합니다. 소변은 도뇨로 채취해 검사하고 항생제로 2~3일에 호전됩니다. 발열에 수유 불량·반복 구토·심한 보챔이 같이 있으면 당일 진료, 3개월 미만이면 즉시.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/urinary.html">KidsHealth</a> <button type="button" class="src go" data-go="10">Day 10</button></p></div></details>
+</section>
+<section class="qa-group" data-cat="vax"><h3>예방접종</h3>
+<details class="qa" data-cat="vax"><summary>2026년에 미국 접종 일정이 바뀌었다던데, 뭘 따라야 하나요?</summary><div class="qa-a"><p>캘리포니아주(CDPH)는 AAP 2026 일정표를 공식 채택했고 보험 적용도 유지됩니다. CDC의 2026-01-05 축소 일정표는 2026-03-16 법원 명령으로 정지됐고, CDC 사이트는 2025년판을 표시합니다. 0~12개월에서 실질적 차이는 코로나19(AAP 6~23개월 권장 / CDC 공동 의사결정)뿐입니다. Kaiser도 B형간염 출생 접종을 유지합니다.</p><p class="qa-r"><a class="src" href="https://www.cdph.ca.gov/Programs/OPA/Pages/NR26-006.aspx">CDPH</a> <a class="src" href="https://downloads.aap.org/AAP/PDF/AAP-Immunization-Schedule.pdf">AAP 2026</a> <a class="src" href="https://about.kaiserpermanente.org/news/the-importance-of-hepatitis-b-vaccination-for-newborns">Kaiser</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="vax"><summary>2개월에 한 번에 너무 많이 맞는 거 아닌가요?</summary><div class="qa-a"><p>2개월 검진에서 보통 7~8개 질환의 백신을 함께 맞지만, 면역계는 수천 개 항원을 동시에 처리할 수 있어 과부하가 아닙니다. Pediarix 같은 혼합백신은 개별 백신과 같은 안전성으로 시험되고 주사 횟수를 줄입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/immunizations/Pages/Multiple-Vaccinations-at-One-Time.aspx">AAP</a> <a class="src" href="https://www.cdc.gov/vaccines-children/about/combination-vaccines.html">CDC</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="vax"><summary>로타바이러스 백신은 왜 마감이 있나요?</summary><div class="qa-a"><p>1차는 생후 14주 6일까지 시작해야 하고(15주 0일 이후 시작 금지), 최종 접종은 8개월 0일까지입니다. 12월 28일생은 2027-04-11까지 1차. 경구 백신이며 장중첩증 병력·중증복합면역결핍은 금기입니다.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/vaccines/hcp/imz-schedules/child-adolescent-notes.html">CDC</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="vax"><summary>BCG(결핵)는 안 맞나요? 한국에선 필수인데요.</summary><div class="qa-a"><p>미국 일정표에는 BCG가 없고, 한국은 생후 4주 이내 접종합니다. 미국에서 안 맞은 것은 문제가 아니며, 한국으로 가면 59개월까지 접종할 수 있고 3개월 이상이면 투베르쿨린 피부검사 음성 확인 후 맞습니다. 일본뇌염(12개월~)도 한국에만 있습니다.</p><p class="qa-r"><a class="src kr" href="https://nip.kdca.go.kr/irhp/infm/goVcntInfo.do?menuLv=1&amp;menuCd=115">질병관리청</a> <a class="src kr" href="https://www.hanam.go.kr/health/contents.do?key=1399">하남시보건소</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="vax"><summary>접종 전에 해열제를 미리 먹여도 되나요? 접종 후 열은요?</summary><div class="qa-a"><p>예방적 해열제는 백신 항체 반응을 낮출 수 있어 권장하지 않습니다(Lancet 2009). 접종 후 미열·보챔·주사부위 붓기는 흔하고, 해열제는 의사와 상의해 접종 후에 씁니다. 단, 3개월 미만의 38°C 이상은 접종 후라도 즉시 연락합니다.</p><p class="qa-r"><a class="src" href="https://pubmed.ncbi.nlm.nih.gov/19837254/">Lancet 2009</a> <a class="src" href="https://www.cdc.gov/vaccines-children/before-during-after-shots/index.html">CDC</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="vax"><summary>접종 당일 콧물이 나는데 미뤄야 하나요?</summary><div class="qa-a"><p>미열·콧물·기침·중이염·가벼운 설사·항생제 복용 중은 연기 사유가 아닙니다. 중등도 이상 급성질환일 때만 회복 후로 미룹니다. 이전 접종에 아나필락시스가 있었다면 금기입니다.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/vaccines-children/before-during-after-shots/when-your-child-is-sick.html">CDC</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="vax"><summary>백신이 자폐를 일으킨다는 말이 있어요.</summary><div class="qa-a"><p>덴마크 53만 명(2002), 125만 명 메타분석(2014), 자폐 형제 연구(2015), 알루미늄 백신 120만 명(2025) 등 대규모 연구에서 인과관계가 없었습니다. 2025년 말 이후 CDC 자폐 페이지 문구가 바뀌어 과학적 합의와 다르니 설명 자료로는 AAP 페이지를 보세요.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/immunizations/Pages/vaccine-studies-examine-the-evidence.aspx">AAP</a> <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/24814559/">Taylor 2014</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="vax"><summary>접종 기록은 어디서 보고, 한국에 갈 때 영문 기록은요?</summary><div class="qa-a"><p>kp.org·앱의 Records → Immunizations에서 조회·출력하고, 캘리포니아 CAIR2에 자동 등록되어 Digital Vaccine Record(myvaccinerecord.cdph.ca.gov)로 QR·PDF를 받습니다. 제품명·날짜가 영문으로 나와 한국 보건소에서 해석할 수 있습니다. 소아과에 "yellow card"를 달라고 하면 종이 기록도 줍니다.</p><p class="qa-r"><a class="src" href="https://myvaccinerecord.cdph.ca.gov/">Digital Vaccine Record</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+<details class="qa" data-cat="vax"><summary>독감·코로나 백신은 언제 맞나요?</summary><div class="qa-a"><p>둘 다 6개월부터. 12월생은 6개월이 되는 2027년 6월엔 시즌이 끝난 뒤라 첫 독감 접종은 2027년 가을에 2회(4주 간격). 코로나19는 AAP가 6~23개월 권장(Moderna 2회), CDC는 공동 의사결정이라 소아과와 상의하면 됩니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/news/Pages/aap-%28influenza%29-flu-prevention-recommendations-for-2026-27.aspx">AAP 독감</a> <a class="src" href="https://downloads.aap.org/AAP/PDF/AAP-Immunization-Schedule.pdf">AAP 2026</a> <button type="button" class="src go" data-go="9">Day 9</button></p></div></details>
+</section>
+
+<section class="qa-group" data-cat="solid"><h3>이유식 · 치아</h3>
+<details class="qa" data-cat="solid"><summary>이유식은 언제 시작하나요? 4개월? 6개월?</summary><div class="qa-a"><p>AAP·WHO·CDC 모두 약 6개월이고 4개월 전은 금지입니다. 준비 신호(목 가누기, 받치면 앉기, 음식에 관심, 혀로 밀어내기 소실, 출생체중 2배)가 갖춰졌을 때. 한국 일부 자료의 "모유아 5개월·분유아 4~6개월"보다 미국 기준을 따르세요.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/Starting-Solid-Foods.aspx">AAP</a> <a class="src" href="https://www.cdc.gov/infant-toddler-nutrition/foods-and-drinks/when-what-and-how-to-introduce-solid-foods.html">CDC</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>첫 음식은 쌀미음이 아닌가요?</summary><div class="qa-a"><p>미국은 첫 음식부터 철분이 많은 것(퓨레한 고기, 철분 강화 시리얼)을 권합니다. 6개월엔 태아기 철분이 바닥나기 때문입니다. 쌀미음으로 시작해도 되지만 쌀은 비소 때문에 단독 장기 사용을 피하고 오트·보리 등 곡물을 번갈아 주며, 1~2주 안에 소고기·채소를 더합니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/Starting-Solid-Foods.aspx">AAP</a> <a class="src" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-action-level-inorganic-arsenic-rice-cereals-infants">FDA</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>땅콩·계란은 돌 지나서 주는 거 아닌가요?</summary><div class="qa-a"><p>반대입니다. 늦출수록 알레르기가 늡니다(LEAP 연구: 조기 노출 시 땅콩 알레르기 81% 감소). 습진·알레르기가 없으면 4~6개월 이후 다른 음식 몇 가지를 먹여 본 뒤 땅콩버터를 묽게 풀어 소량부터, 이후 주 2~3회 꾸준히. 심한 습진·계란 알레르기가 있으면 먼저 소아과 상담. 통땅콩은 4세까지 금지.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/healthy-living/nutrition/Pages/when-to-introduce-egg-peanut-butter-and-other-common-food-allergens-to-your-baby-food-allergy-prevention-tips.aspx">AAP</a> <a class="src" href="https://www.niaid.nih.gov/diseases-conditions/guidelines-clinicians-and-patients-food-allergy">NIAID</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>꿀, 생우유, 물, 주스는 언제부터요?</summary><div class="qa-a"><p>꿀은 12개월 전 절대 금지(보툴리누스, 노리개에 묻히기 포함). 생우유 음료는 12개월부터(요거트·치즈는 7~8개월부터 가능). 물은 6개월 전 금지, 6~12개월 하루 120~240 mL를 컵으로. 주스는 12개월 전 금지.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/infections/Pages/Botulism.aspx">AAP 꿀</a> <a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Why-Formula-Instead-of-Cows-Milk.aspx">AAP 우유</a> <a class="src" href="https://www.healthychildren.org/English/healthy-living/nutrition/Pages/Choose-Water-for-Healthy-Hydration.aspx">AAP 물</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>어떤 음식이 질식 위험인가요?</summary><div class="qa-a"><p>통포도·방울토마토·블루베리 통째, 핫도그·소시지, 견과·씨앗, 팝콘, 생당근·생사과 조각, 큰 고기·치즈 덩어리, 덩어리 땅콩버터, 딱딱하거나 끈적한 사탕·젤리·마시멜로는 4세까지 금지. 조각은 1.3 cm 이하, 포도·핫도그는 세로로 4등분, 핑거푸드는 동전이 아니라 손가락 모양 스틱. 하이체어에서 어른이 지켜봅니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/injuries-emergencies/Pages/Choking-Prevention.aspx">AAP</a> <a class="src" href="https://www.cdc.gov/infant-toddler-nutrition/foods-and-drinks/choking-hazards.html">CDC</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>아기주도이유식(BLW)이 좋나요, 퓨레가 좋나요?</summary><div class="qa-a"><p>AAP는 BLW의 장점이 제안되지만 연구가 적고 철분·열량 부족과 질식 우려가 있다고 봅니다. 현실적 절충은 퓨레와 핑거푸드를 섞되 철분 식품과 알레르겐은 부모가 주도해 챙기는 것입니다. 스스로 앉지 못하면 기다립니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/baby-led-weaning-is-it-safe.aspx">AAP</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>이는 언제 나나요? 이앓이로 열이 나나요?</summary><div class="qa-a"><p>첫 이는 대개 6개월 전후(4~12개월 모두 정상), 18개월까지 없으면 치과 상담. 이앓이는 침·잇몸 부음·씹으려 함·가벼운 보챔을 일으키지만 38°C 이상의 진짜 발열·설사는 일으키지 않습니다. 그런 증상은 감염을 찾아야 합니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/teething-tooth-care/Pages/Teething-Pain.aspx">AAP</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>이앓이 젤·호박 목걸이를 써도 되나요?</summary><div class="qa-a"><p>안 됩니다. 벤조카인 젤(Orajel 등)은 메트헤모글로빈혈증으로 사망 사례가 있어 FDA가 2세 미만 사용을 금지했고, 동종요법 이앓이 정제는 리콜됐으며, 호박 목걸이는 목 졸림 사망 보고가 있고 효과 근거가 없습니다. 안전한 방법은 잇몸 마사지, 냉장한 단단한 치발기, 차가운 젖은 거즈입니다.</p><p class="qa-r"><a class="src" href="https://www.fda.gov/consumers/consumer-updates/safely-soothing-teething-pain-infants-and-children">FDA</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>치약은 불소가 들어가야 하나요? 첫 치과는 언제요?</summary><div class="qa-a"><p>첫 이가 나는 순간부터 불소치약을 쌀알 크기로 하루 2회(3세부터 완두콩 크기). 이 양은 삼켜도 안전하고 무불소 치약은 충치 예방 효과가 없습니다. 첫 치과는 첫 이 후 6개월 안, 늦어도 돌 전. 소아과 검진 때 불소 바니시를 요청하세요. Redwood City 수돗물은 불소가 들어 있어 불소 드롭은 보통 불필요합니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/healthy-living/oral-health/Pages/Brushing-Up-on-Oral-Health-Never-Too-Early-to-Start.aspx">AAP</a> <a class="src" href="https://www.ada.org/resources/ada-library/oral-health-topics/fluoride-topical-and-systemic-supplements">ADA</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>돌이 지나면 우유는 얼마나, 젖병은 언제 떼나요?</summary><div class="qa-a"><p>12개월부터 전지(whole) 우유 하루 480~720 mL(16~24 oz), 24 oz를 넘으면 철결핍·밥 거부. 토들러 분유는 불필요. 컵은 6개월부터 연습하고 젖병은 12~18개월 사이에 완전히 뗍니다(충치·치열·과식).</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/Discontinuing-the-Bottle.aspx">AAP</a> <a class="src" href="https://www.healthychildren.org/English/healthy-living/nutrition/Pages/recommended-drinks-for-young-children-ages-0-5.aspx">AAP 음료</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+<details class="qa" data-cat="solid"><summary>새 재료는 며칠 간격으로 주나요? 알레르기 반응은 어떻게 알죠?</summary><div class="qa-a"><p>한 번에 한 가지를 3~5일 간격(한국 자료 3~7일)으로, 오전에 집에서 아기가 건강할 때 줍니다. 입 주변 두드러기·구토 1회는 중단하고 소아과 연락. 입술·혀 붓기, 쌕쌕·호흡곤란, 창백·축 늘어짐, 반복 구토는 아나필락시스로 911.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/healthy-living/nutrition/Pages/Food-Allergies-in-Children.aspx">AAP</a> <a class="src kr" href="https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5470">질병관리청</a> <button type="button" class="src go" data-go="11">Day 11</button></p></div></details>
+</section>
+
+<section class="qa-group" data-cat="safety"><h3>안전 · 외출 · 손님</h3>
+<details class="qa" data-cat="safety"><summary>외출은 언제부터 할 수 있나요? 삼칠일을 지켜야 하나요?</summary><div class="qa-a"><p>미국 지침엔 정해진 규칙이 없고 날씨가 좋으면 산책은 퇴원 후 바로 가능합니다. 붐비는 밀폐 공간(쇼핑몰·극장·비행기)은 몇 개월 피하라는 의사가 많습니다. 삼칠일(21일 외부인 제한)은 "손님 제한·감염 예방" 취지에서 미국 권고와 통하지만 바깥 산책까지 막을 이유는 없습니다. 12월생은 독감·RSV 철이라 실내 다중시설 회피는 합리적입니다.</p><p class="qa-r"><a class="src" href="https://kidshealth.org/en/parents/newborn-out.html">KidsHealth</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>손님이 아기를 안아도 되나요? 뽀뽀는요?</summary><div class="qa-a"><p>손을 씻고, 아픈 사람은 오지 않게 하고, 얼굴·손에 뽀뽀는 금지합니다. 헤르페스(입술 포진) 바이러스는 생후 6개월 미만, 특히 첫 몇 주에 치명적일 수 있습니다. 포진이 있는 사람은 안지도 않습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/skin/Pages/Herpes-Simplex-Virus-Cold-Sores.aspx">AAP</a> <a class="src" href="https://kidshealth.org/en/parents/newborn-out.html">KidsHealth</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>한국에서 오시는 조부모께 뭘 부탁드려야 하나요?</summary><div class="qa-a"><p>아기 만나기 최소 2주 전 Tdap(백일해)과 독감(·코로나) 접종, 기침·감기가 있으면 방문 연기, 도착 후 2~3일은 야간 담당 제외. 아기 DTaP는 2개월부터라 그 전엔 주변 어른의 접종이 보호막입니다. 안전 수면·꿀·뽀뽀 규칙은 미리 한국어로 공유하세요(Day 13 표).</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/pertussis/vaccines/index.html">CDC</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>겨울에 밖에 나갈 때 옷은? 카시트에 패딩 입혀도 되나요?</summary><div class="qa-a"><p>얇은 옷 여러 겹으로 어른보다 한 겹 더, 외출 시 모자·양말, 실내에선 모자 벗기기. 카시트 안에서는 두꺼운 외투·패딩을 벗기고 얇은 옷 + 담요를 위에 덮습니다(패딩은 벨트가 헐거워져 사고 시 위험). Redwood City 1월은 아침 5°C, 낮 15°C 정도입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-play/Pages/Cold-Weather-Safety.aspx">AAP</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>자외선차단제는 언제부터 발라요?</summary><div class="qa-a"><p>6개월 미만은 원칙적으로 쓰지 않고 그늘·긴소매·챙 넓은 모자로 가립니다(못 가리는 작은 부위에만 소량 가능). 6개월 이후 노출 부위에 광범위 SPF 15~30, 민감 피부엔 산화아연·이산화티타늄 미네랄 제품, 2시간마다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-play/Pages/Sun-Safety.aspx">AAP</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>아기띠·포대기는 언제부터, 어떻게 안전하게 쓰나요?</summary><div class="qa-a"><p>T.I.C.K.S.: 밀착, 얼굴이 항상 보이게, 입 맞출 높이, 턱이 가슴에 붙지 않게(손가락 1개 틈), 등 지지. 다리는 무릎이 엉덩이보다 높은 M자(고관절). 4개월 미만·조산아는 특히 주의하고 제조사의 최소 체중·신생아 인서트 지침을 따릅니다. 한국식 포대기도 같은 원칙이면 괜찮습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/on-the-go/Pages/Baby-Carriers.aspx">AAP</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>보행기·점퍼루·바운서는 써도 되나요?</summary><div class="qa-a"><p>보행기(baby walker)는 AAP가 판매 금지를 요구할 만큼 위험합니다(계단 추락). 바운서·그네는 깨어 있을 때 짧게만 쓰고 절대 수면용으로 쓰지 않습니다. 발달에 도움이 되는 것은 바닥에서의 터미타임과 자유로운 움직임입니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Baby-Walkers-A-Dangerous-Choice.aspx">AAP</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>집에서 당장 해 둘 안전 조치는?</summary><div class="qa-a"><p>출산 전: 온수기 49°C(120°F) 이하, 연기·CO 감지기, 카시트 설치 점검, Poison Control 1-800-222-1222 저장, 영아 CPR 수업. 0~3개월: 교환대에 혼자 두지 않기, 뜨거운 음료 들고 안지 않기. 6~9개월(기기 전): 콘센트 커버, 가구·TV 벽 고정, 찬장 잠금, 계단문, 블라인드 코드리스, 버튼 배터리 점검.</p><p class="qa-r"><a class="src" href="https://healthy.kaiserpermanente.org/health-wellness/health-encyclopedia/he.quick-tips-babyproofing-your-home.te7335">Kaiser</a> <a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Childproofing-Your-Home.aspx">AAP</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>버튼 배터리나 작은 물건을 삼킨 것 같아요.</summary><div class="qa-a"><p>버튼 배터리는 2시간 내 식도 화상을 일으키므로 증상이 없어도 즉시 응급실입니다. 토하게 하지 않습니다. 작은 자석 여러 개도 응급. 그 외 중독·약 과량은 Poison Control 1-800-222-1222(24시간, 한국어 통역).</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Button-Battery-Injuries-in-Children-A-Growing-Risk.aspx">AAP</a> <a class="src" href="https://calpoison.org/">Poison Control</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>비행기는 언제부터 탈 수 있나요? 한국 가는 장거리는요?</summary><div class="qa-a"><p>7일부터 가능은 하지만 AAP가 말하는 "이상적" 시기는 생후 2~3개월입니다. 2세 미만 무릎 동반은 무료지만 AAP·FAA는 좌석을 사서 FAA 승인 카시트에 태우길 권합니다(난기류 부상). 이착륙 때 수유·공갈젖꼭지로 귀 압력을 풀어 줍니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/safety-prevention/on-the-go/Pages/Flying-with-Baby.aspx">AAP</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>반려동물과 아기를 같이 둬도 되나요?</summary><div class="qa-a"><p>절대 단둘이 두지 않고, 핥지 못하게 하고(Pasteurella 감염), 아기 침대에서 재우지 않습니다. 광견병 접종을 확인하세요.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/health-issues/conditions/from-insects-animals/pages/Pets-and-Pasteurella-Infections.aspx">AAP</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+<details class="qa" data-cat="safety"><summary>카시트는 언제까지 뒤보기(후방장착)인가요?</summary><div class="qa-a"><p>캘리포니아 법은 만 2세까지 후방장착(40 lb/40 in 예외), 8세 미만은 뒷좌석. AAP는 제조사 한계까지 최대한 오래 후방장착을 권합니다. 가슴 클립은 겨드랑이 높이, 어깨끈은 꼬집어도 여유가 없게, 차 안에 혼자 두지 않기. 무료 설치 점검은 CHP Redwood City 650-779-2700.</p><p class="qa-r"><a class="src" href="https://www.chp.ca.gov/programs-services/programs/child-safety-seats/">CHP</a> <a class="src" href="https://www.healthychildren.org/English/safety-prevention/on-the-go/Pages/Car-Safety-Seats-Information-for-Families.aspx">AAP</a> <button type="button" class="src go" data-go="12">Day 12</button></p></div></details>
+</section>
+<section class="qa-group" data-cat="parent"><h3>엄마 · 아빠</h3>
+<details class="qa" data-cat="parent"><summary>산후 출혈은 얼마나 가나요? 언제 응급인가요?</summary><div class="qa-a"><p>오로는 선홍색(3~4일) → 분홍·갈색(~12일) → 누런 흰색(~6주)으로 바뀌며 최대 6주 갑니다. 1시간에 패드 1장이 흠뻑 젖거나 골프공보다 큰 덩어리가 나오면 응급실, 악취·열·오한, 멈췄다 다시 많아지면 당일 연락. 탐폰·생리컵은 쓰지 않습니다.</p><p class="qa-r"><a class="src" href="https://my.clevelandclinic.org/health/symptoms/22485-lochia">Cleveland Clinic</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>출산 후 엄마에게 위험한 신호는 무엇인가요? (아빠가 외울 것)</summary><div class="qa-a"><p>①패드 1장/시간 출혈 ②열 38°C 이상 ③가시지 않는 두통·시야 이상·얼굴 부종·명치 통증(산후 전자간증, 6주까지) ④가슴 통증·숨 참(911) ⑤한쪽 다리 붓고 아픔(혈전) ⑥절개부 붉어지고 진물 ⑦자신이나 아기를 해칠 생각(988/911). 출산 후 1년까지 의료진에게 "출산한 지 N주"라고 말하세요.</p><p class="qa-r"><a class="src" href="https://www.cdc.gov/hearher/maternal-warning-signs/index.html">CDC Hear Her</a> <a class="src" href="https://my.clevelandclinic.org/health/diseases/17733-postpartum-preeclampsia">Cleveland Clinic</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>아내가 계속 울어요. 산후우울증인가요?</summary><div class="qa-a"><p>출산 2~3일 뒤 시작해 2주 안에 사라지는 울컥함·불안은 베이비블루스(50~80%)입니다. 2주 넘게 지속되거나 아기가 잘 때도 못 자고, 식욕이 변하고, 죄책감·분노, 아기와 유대감 없음이면 산후우울증(8명 중 1명)일 수 있어 평가·치료가 필요합니다. Kaiser 산과·정신건강에 연락하고, 자해 생각이 있으면 988.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/prenatal/delivery-beyond/Pages/Understanding-Motherhood-and-Mood-Baby-Blues-and-Beyond.aspx">AAP</a> <a class="src" href="https://www.postpartum.net/get-help/psi-helpline/">PSI</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>아빠도 산후우울증이 오나요?</summary><div class="qa-a"><p>네, 7~10%이고 출산 후 3~6개월에 가장 높습니다. 짜증·분노·공격성, 회피(일·게임·술), 수면·식욕 변화, 아기와 유대 어려움이 신호입니다. 치료는 엄마와 같고 PSI에 아빠 전용 온라인 모임이 있습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/prenatal/delivery-beyond/Pages/Dads-Can-Get-Postpartum-Depression-Too.aspx">AAP</a> <a class="src" href="https://www.postpartum.net/get-help/help-for-dads/">PSI Dads</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>산후 검진은 언제 가나요?</summary><div class="qa-a"><p>ACOG는 출산 3주 이내 첫 접촉, 12주 이내 종합 검진을 권하고 Kaiser는 보통 4~6주입니다. 제왕절개는 약 2주에 절개부 확인. 퇴원 시 산후 검진과 수유 상담 예약을 같이 잡아 달라고 하세요.</p><p class="qa-r"><a class="src" href="https://www.marchofdimes.org/find-support/topics/postpartum/your-postpartum-checkups">March of Dimes</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>제왕절개 후 운전·운동은 언제부터요?</summary><div class="qa-a"><p>최소 2주 운전 금지(마약성 진통제 복용 중엔 금지), 6~8주간 아기보다 무거운 것 들지 않기, 욕조·수영은 약 3주 후 허락 뒤. 걷기·가벼운 집안일은 회복과 혈전 예방에 도움이 됩니다. 대부분 4~8주면 일상 복귀.</p><p class="qa-r"><a class="src" href="https://medlineplus.gov/ency/patientinstructions/000624.htm">MedlinePlus</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>모유수유 중이면 피임을 안 해도 되나요?</summary><div class="qa-a"><p>아니요. 출산 3주 후부터 임신이 가능합니다, 생리가 없어도. 모유수유 피임법(LAM)은 "6개월 미만 + 완전 모유수유 + 생리 없음" 세 조건이 모두 맞을 때만 유효하고 유축 위주면 효과가 줄어듭니다. 에스트로겐 복합 피임약은 젖양을 줄일 수 있어 다른 방법을 상의합니다.</p><p class="qa-r"><a class="src" href="https://www.nhs.uk/conditions/baby/support-and-services/sex-and-contraception-after-birth/">NHS</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>산후조리: 땀을 내고 찬물·찬바람을 피해야 하나요?</summary><div class="qa-a"><p>한국 산부인과 교수들도 뜨거운 방에서 땀 낼 필요가 없고 샤워·에어컨은 괜찮으며 21일 내내 누워 있으면 회복이 늦다고 말합니다. 이불 덮고 땀내기는 부종을 악화시킵니다. 미국 근거도 샤워 즉시, 걷기는 혈전 예방에 필수. 더운 방은 아기 과열(SIDS) 위험이니 실내 온도는 아기 기준으로 하고 산모는 양말·가디건으로 조절하세요.</p><p class="qa-r"><a class="src kr" href="https://www.medicaldaily.co.kr/news/3796">의약일보</a> <a class="src kr" href="https://kormedi.com/1182782/">코메디닷컴</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>산후도우미는 얼마나 하나요?</summary><div class="qa-a"><p>한인 산후도우미 출퇴근 주 $1,100~1,300(+예약비), 입주 주 $1,350~1,700, LA 기준 입주 6주 약 $8,400. 미국식 postpartum doula는 시간당 $120 수준(Redwood City 커버 업체 있음). 12월 출산은 10~11월에 예약이 마감되는 경우가 흔합니다.</p><p class="qa-r"><a class="src kr" href="https://www.mom1004usa.com/">맘천사</a> <a class="src kr" href="https://www.koreadaily.com/article/20240313203100972">중앙일보</a> <a class="src" href="https://baycitydoulas.com/">Bay City Doulas</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>아빠가 지금 당장 할 수 있는 가장 중요한 일은요?</summary><div class="qa-a"><p>밤 수유 1~2회를 유축분·분유로 맡아 엄마에게 연속 수면 블록을 만들어 주기, 방문객 게이트키핑, 엄마 경고 신호 관찰, 기저귀·목욕·트림 전담, 수유 자리 세팅(물·간식·유축기 세척). 아빠에게 모유수유 교육을 한 연구에서 6개월 완전모유수유율이 25% vs 15%로 높았습니다.</p><p class="qa-r"><a class="src" href="https://www.healthychildren.org/English/ages-stages/prenatal/delivery-beyond/Pages/Dads-Can-Get-Postpartum-Depression-Too.aspx">AAP</a> <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/16199674/">Pisacane 2005</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+<details class="qa" data-cat="parent"><summary>부모 클래스는 어디서 듣나요?</summary><div class="qa-a"><p>Kaiser Redwood City Health Education(650-299-2433, HealthEducation.RedwoodCity@kp.org): Newborn Care, Breastfeeding, Infant Safety &amp; CPR(회원 무료, 개설 여부 전화 확인). Stanford Medicine Children's Health는 타 병원 출산자도 수강 가능(Newborn Care, CPR Infant Only, 커플 워크숍).</p><p class="qa-r"><a class="src" href="https://www.stanfordchildrens.org/en/classes/community/after-birth.html">Stanford</a> <button type="button" class="src go" data-go="13">Day 13</button></p></div></details>
+</section>
+
+<section class="qa-group" data-cat="admin"><h3>서류 · 행정 · 미국 생활</h3>
+<details class="qa" data-cat="admin"><summary>출생증명서는 어떻게, 언제, 몇 부 받나요?</summary><div class="qa-a"><p>병원이 Worksheet로 카운티에 등록하고 부모는 인증본(certified copy)을 삽니다. San Mateo County Vital Records(1600 W. Hillsdale Blvd #203, San Mateo, 650-573-2395, 월~금 8:30~16:30)에서 출생 2~3주 후부터 $34/부, 예약 없이 5~15분. 최소 5부(미국 여권, 한국 영사관 미반환, EDD, HR, 예비). 아포스티유가 필요하면 Clerk-Recorder 발행본이 바로 됩니다.</p><p class="qa-r"><a class="src" href="https://www.smchealth.org/post/birth-certificates">SMC Health</a> <a class="src" href="https://smcacre.gov/county-clerk-recorder/vital-records-fees">수수료</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>아기 SSN은 어떻게 받나요?</summary><div class="qa-a"><p>병원 Worksheet의 SSN 신청란에 "Yes"만 체크하면(Enumeration at Birth) 부모 체류 신분과 무관하게 약 4주 뒤 우편으로 옵니다. 6주가 지나도 안 오면 1-800-772-1213 또는 SSA Redwood City(1718 Broadway)에서 SS-5로 직접 신청. 보험 등록엔 SSN이 필수가 아니지만 세금·529·은행 계좌엔 필수입니다.</p><p class="qa-r"><a class="src" href="https://www.ssa.gov/faqs/en/questions/KA-10041.html">SSA</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>아기 보험은 언제까지 추가해야 하나요?</summary><div class="qa-a"><p>Kaiser 캘리포니아는 출생 후 31일 이내(그때까지는 산모 보험으로 커버), 직장 보험이면 회사 HR에도 별도로 신청(보통 30일). 놓치면 다음 open enrollment까지 무보험 위험. 병원 출생기록으로 임시 신청하고 출생증명서는 나중에 내도 됩니다.</p><p class="qa-r"><a class="src" href="https://healthy.kaiserpermanente.org/health-wellness/healtharticle.enroll-your-baby-in-your-health-plan">Kaiser</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>한국 출생신고는 어떻게, 언제까지 하나요?</summary><div class="qa-a"><p>출생 후 1개월 이내(가족관계등록법 제44조, 과태료 5만원 이하이나 실무상 거의 미부과), 주샌프란시스코총영사관에 우편 접수 가능. 출생신고서(한글)·전자적 송부신청서·카운티 출생증명서 원본 1부(미반환)·한글 번역문·부모 여권+비자 사본·부모 각 가족관계증명서·반송봉투. 처리 4주 이내, 결과는 이메일. 한국에 혼인신고가 되어 있어야 합니다. 미국 출생아는 온라인 출생신고 대상이 아닙니다.</p><p class="qa-r"><a class="src kr" href="https://overseas.mofa.go.kr/us-sanfrancisco-ko/brd/m_4671/view.do?seq=994219&amp;page=1">SF 총영사관</a> <a class="src kr" href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=699&amp;ccfNo=3&amp;cciNo=4&amp;cnpClsNo=2">생활법령</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>아기 미국 여권은 어떻게 만드나요?</summary><div class="qa-a"><p>DS-11을 온라인 작성·출력(서명은 현장), 양 부모 + 아기가 접수처에 출석(불참 시 공증 DS-3053), 출생증명서 원본+사본, 부모 여권·비자 사본, DS-2019·I-94 출력본, 사진 2×2인치, $100 수표/머니오더 + $35 execution fee. San Mateo County Clerk는 접수를 중단했으니 Redwood City 우체국(1100 Broadway)에 전화 확인 후 usps.com 예약. 처리 4~6주(급행 2~3주). 16세 미만 여권은 5년 유효.</p><p class="qa-r"><a class="src" href="https://travel.state.gov/content/travel/en/passports/need-passport/under-16.html">State Dept</a> <a class="src" href="https://smcacre.gov/passports">SMC Clerk 공지</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>아기 한국 여권은요?</summary><div class="qa-a"><p>한국 출생신고가 수리된 뒤 영사관 방문 전용(우편 불가), g4k.go.kr 방문 예약 필수(매월 1일·16일 오전 10시 오픈). 신청서, 사진 3.5×4.5 cm 인화본, 부모 여권 사본, 법정대리인 동의서, 아기 미국 여권 또는 출생증명서 사본. 7세 이하 58면 $35, 우편수령 $38.25, 3~4주. 한국 입국은 한국 여권으로.</p><p class="qa-r"><a class="src kr" href="https://overseas.mofa.go.kr/us-sanfrancisco-ko/brd/m_4667/view.do?seq=1344849&amp;page=1">SF 총영사관</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>아빠 육아휴직(PFL)은 어떻게 받나요?</summary><div class="qa-a"><p>급여에서 CASDI가 공제되면 캘리포니아 PFL로 12개월 내 최대 8주, 임금의 70~90%(2026 주 최대 $1,765, 2027 전망 $1,791), 이민 신분 무관. myEDD → SDI Online에서 휴가 시작 후 41일 이내 청구, 병원 출생기록 또는 출생증명서 첨부. 직장 보호는 PFL이 아니라 CFRA(5인+ 사업장, 재직 12개월·1,250시간, 12주). J-1은 유급 휴가면 보통 문제없지만 국제처에 미리 알리고 무급 휴직은 피하세요.</p><p class="qa-r"><a class="src" href="https://edd.ca.gov/en/disability/paid-family-leave/">EDD</a> <a class="src" href="https://edd.ca.gov/en/disability/Am_I_Eligible_for_PFL_Benefits/">자격</a> <a class="src" href="https://calcivilrights.ca.gov/family-medical-pregnancy-leave">CRD</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>아들이면 병역·복수국적은 어떻게 되나요?</summary><div class="qa-a"><p>미국 출생 + 한국인 부모 = 선천적 복수국적자. 남자는 만 18세 되는 해 3월 31일(2044-03-31)까지 국적이탈 신고를 해야 하고 지나면 병역 해소 전까지 불가. 단 부모가 "영주할 목적 없이 체류" 중 출생하면(J-1 같은 비이민 신분이 여기 해당될 가능성 큼) 병역을 마쳐야 이탈할 수 있고, 예외는 부모의 영주권·시민권 취득/신청 또는 17년 이상 거주뿐입니다(시행규칙 10조의2). 커뮤니티의 "2년 체류/취업 6개월 예외"는 법령에 없습니다.</p><p class="qa-r"><a class="src kr" href="https://www.mma.go.kr/contents.do?mc=usr0000193">병무청</a> <a class="src kr" href="https://www.moj.go.kr/bbs/immigration/224/576300/artclView.do">법무부</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>아기가 12월에 태어나도 세금 혜택이 있나요?</summary><div class="qa-a"><p>12월 출생아도 2026년 전체 부양가족으로 Child Tax Credit 최대 $2,200(환급형 $1,700). 아기와 납세자 모두 신고기한 전에 발급된 SSN이 필요합니다. 2026년분을 비거주자(1040-NR)로 내는 경우 IRS Pub 519는 "한국 거주자"가 미국에서 함께 산 자녀를 청구할 수 있다고 보지만 조약상 거주자 판단이 필요하니 세무 담당자와 확인하세요. 또 캘리포니아 출생아는 CalKIDS에 $100이 자동 적립되고 계정 청구 시 +$25, ScholarShare 529 연결 시 +$50입니다.</p><p class="qa-r"><a class="src" href="https://www.irs.gov/credits-deductions/individuals/child-tax-credit">IRS</a> <a class="src" href="https://www.irs.gov/publications/p519">Pub 519</a> <a class="src" href="https://www.calkids.org/">CalKIDS</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>출생시민권 문제로 아기가 시민권을 못 받을 수도 있나요?</summary><div class="qa-a"><p>2026-06-30 대법원(Trump v. Barbara)이 비자 체류 부모의 자녀도 출생 시 시민이라고 확정했습니다. 2026-08 새 행정명령 2건은 외국 정부 직원·출산 관광 등 좁은 범주를 겨냥하고 J-1 연구자·J-2 배우자는 해당하지 않으며, 집행도 법원이 막고 있습니다. 실무 조언은 출생증명서가 나오는 대로 미국 여권을 신청해 증빙을 확보하고, 접수 때 부모 DS-2019·I-94를 지참하는 것입니다.</p><p class="qa-r"><a class="src" href="https://www.scotusblog.com/2026/06/supreme-court-strikes-down-trumps-order-ending-birthright-citizenship/">SCOTUSblog</a> <a class="src" href="https://www.scotusblog.com/2026/09/judge-blocks-trump-second-birthright-citizenship-order/">SCOTUSblog 2026-09</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>한국어 하는 소아과 의사를 찾을 수 있나요?</summary><div class="qa-a"><p>kp.org "Find a doctor"에서 언어 필터(Korean)로 Redwood City·San Mateo·Santa Clara 소아과를 검색할 수 있고, 어느 의사든 진료 시 무료 통역(전화·화상)을 요청할 수 있습니다. 아기 계정은 kp.org → My Account → "Act for a Family Member"로 부모 계정에 연결합니다.</p><p class="qa-r"><a class="src" href="https://healthy.kaiserpermanente.org/support/act-for-a-family-member">Kaiser</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+<details class="qa" data-cat="admin"><summary>예방접종 기록·출생증명서를 한국 기관에 낼 때 아포스티유가 필요한가요?</summary><div class="qa-a"><p>영사관 출생신고에는 아포스티유가 필요 없습니다. 한국 내 다른 기관에 낼 때 요구되면 CA Secretary of State에서 받는데, 보건국(Health Officer) 발행본은 Clerk의 $12 서명확인을 먼저 거쳐야 하니 Clerk-Recorder(555 County Center) 발행본을 사면 바로 됩니다. 접종 기록은 CAIR Digital Vaccine Record 영문 PDF로 충분한 경우가 많습니다.</p><p class="qa-r"><a class="src" href="https://www.sos.ca.gov/notary/apostille-faqs">CA SOS</a> <a class="src" href="https://smcacre.gov/county-clerk-recorder/vital-records-fees">SMC Clerk</a> <button type="button" class="src go" data-tabgo="dad">아빠 할 일 탭</button></p></div></details>
+</section>
+<p class="small muted">여기 없는 질문은 Kaiser 24시간 advice nurse(Day 8)에게 물어보세요. 이 목록은 2026-10-19 자료 기준이며, 답은 진료를 대신하지 않습니다.</p>
+</div>
 <div id="pane-english" class="pane" data-pane="english" hidden>
 <section class="hero">
   <div>
@@ -2636,7 +3044,7 @@ footer{color:var(--muted);font-size:.8rem;margin-top:30px;padding-top:12px;borde
 </div>
 <footer>
   <p>이 페이지는 공부용 자료입니다. 아기의 증상·치료는 반드시 소아과 의사(Kaiser 24시간 advice nurse 포함)와 상의하세요. 미국(AAP·CDC·Kaiser)과 한국(대한소아청소년과학회·질병관리청) 지침을 함께 적었고, 다른 곳은 그렇다고 표시했습니다. 자료 조사일 2026-10-19. 접종·법령·수수료는 바뀔 수 있으니 링크 원문을 확인하세요.</p>
-  <p><span id="sync" class="sync">저장 상태</span> <span id="sync-msg"></span> · 마지막 수정 <span id="last-mod">–</span> · v1.1 (2026-10-19) · <a href="https://benmsk.github.io/mm-baby-school/">github.io 버전</a> · <a href="https://claude.ai/artifact/Ff7anvSvtRLy77STxJPAKu">claude.ai 공유 버전</a> · <a href="https://claude.ai/artifact/LKWaj7cPM95xvSJJUHEwf4">출산 준비 노트(임신 중 할 일)</a></p>
+  <p><span id="sync" class="sync">저장 상태</span> <span id="sync-msg"></span> · 마지막 수정 <span id="last-mod">–</span> · v1.2 (2026-10-19) · <a href="https://benmsk.github.io/mm-baby-school/">github.io 버전</a> · <a href="https://claude.ai/artifact/Ff7anvSvtRLy77STxJPAKu">claude.ai 공유 버전</a> · <a href="https://claude.ai/artifact/LKWaj7cPM95xvSJJUHEwf4">출산 준비 노트(임신 중 할 일)</a></p>
 </footer>
 </main>
 </template>
@@ -2730,10 +3138,23 @@ function route(){
   var h=(location.hash||"").replace("#",""), m=/^d(\d+)$/.exec(h);
   if(m){ setTab("course"); showDay(parseInt(m[1],10)); return; }
   if(h==="course"){ setTab("course"); showDay(0); return; }
-  if(h==="dad"||h==="english"){ setTab(h); return; }
+  if(h==="dad"||h==="english"||h==="qa"){ setTab(h); return; }
   var v=ls(LS_VIEW)||"dad", m2=/^d(\d+)$/.exec(v);
-  if(m2){ setTab("course"); showDay(parseInt(m2[1],10)); } else { setTab(v==="english"?"english":"dad"); }
+  if(m2){ setTab("course"); showDay(parseInt(m2[1],10)); } else { setTab((v==="english"||v==="qa")?v:"dad"); }
 }
+// ---- Q&A search + category filter (per device, nothing saved)
+var qaCat="";
+function filterQA(){
+  var inp=$("#qa-q"), q=((inp&&inp.value)||"").trim().toLowerCase(), n=0;
+  $$(".qa").forEach(function(d){
+    var ok=(!qaCat||d.getAttribute("data-cat")===qaCat) && (!q||d.textContent.toLowerCase().indexOf(q)>=0);
+    d.hidden=!ok; if(ok){ n++; if(q) d.open=true; }
+  });
+  $$(".qa-group").forEach(function(g){ g.hidden = !$$(".qa",g).some(function(d){ return !d.hidden; }); });
+  $$(".qa-cat").forEach(function(c){ c.classList.toggle("on", c.getAttribute("data-cat")===qaCat); });
+  var cnt=$("#qa-n"); if(cnt) cnt.textContent=n+"개";
+}
+root.addEventListener("input", function(ev){ if(ev.target.id==="qa-q") filterQA(); });
 function renderAll(){ renderChecks(); renderDates(); renderLessons(); renderMod(); }
 function renderMod(){ var m=STATE.updated; var el=$("#last-mod"); if(el) el.textContent = m ? new Date(m).toLocaleString("ko-KR") : "–"; }
 
@@ -2772,6 +3193,8 @@ root.addEventListener("click", function(ev){
   var t=ev.target.closest("button"); if(!t) return;
   if(t.classList.contains("tab")){ setTab(t.getAttribute("data-tab")); if(t.getAttribute("data-tab")==="course") showDay(curDay); return; }
   if(t.hasAttribute("data-go")){ setTab("course"); showDay(parseInt(t.getAttribute("data-go"),10)); return; }
+  if(t.classList.contains("qa-cat")){ qaCat=t.getAttribute("data-cat")||""; filterQA(); return; }
+  if(t.hasAttribute("data-tabgo")){ setTab(t.getAttribute("data-tabgo")); return; }
   if(t.classList.contains("done-btn")){ var k="d"+t.getAttribute("data-day"); if(STATE.lessons[k]) delete STATE.lessons[k]; else STATE.lessons[k]=Date.now(); renderLessons(); changed(); return; }
   if(t.classList.contains("opt")){
     var q=t.closest(".q"); if(!q||q.getAttribute("data-done")) return;
@@ -2803,7 +3226,7 @@ $$("table").forEach(function(t){
   $$("tr",t).slice(1).forEach(function(tr){ Array.prototype.slice.call(tr.children).forEach(function(td,j){ if(ths[j]) td.setAttribute("data-label",ths[j]); }); });
 });
 var who=$("#who"); if(who) who.value=ls(LS_WHO)||"";
-renderAll(); route();
+renderAll(); route(); filterQA();
 try{ var sy=sessionStorage.getItem("mm-school-scroll"); if(sy){ sessionStorage.removeItem("mm-school-scroll"); window.scrollTo(0,parseInt(sy,10)||0); } }catch(e){}
 var hasClaude=!!(window.claude&&typeof window.claude.use==="function");
 if(hasClaude){ window.claude.use("artifact").then(function(ns){ if(ns){ art=ns; mode="shared"; setSync("shared","두 사람이 공유 · 페이지에 저장됨"); } else useLocal(); }).catch(useLocal); }
