@@ -2,6 +2,7 @@
 <title>M&M 육아 학교</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#FFF8F1" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#201A28" media="(prefers-color-scheme: dark)"><meta name="apple-mobile-web-app-title" content="육아 학교">
+<link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap">
 <style id="css">
 /* Layout: sticky app header with two pill tabs; one 820px column; the course shows one lesson at a time behind a chip day-nav. */
@@ -2741,7 +2742,7 @@ function buildHtml(){
   var css=document.getElementById("css").textContent, app=document.getElementById("app").textContent;
   var json=JSON.stringify(STATE).replace(/</g,"\\u003c");
   return '<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>'+RESET+'</style></head><body>\n'
-    +'<title>'+TITLE+'</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<meta name="theme-color" content="#FFF8F1" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#201A28" media="(prefers-color-scheme: dark)"><meta name="apple-mobile-web-app-title" content="육아 학교">\n<link rel="stylesheet" href="'+FONT+'">\n'
+    +'<title>'+TITLE+'</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<meta name="theme-color" content="#FFF8F1" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#201A28" media="(prefers-color-scheme: dark)"><meta name="apple-mobile-web-app-title" content="육아 학교">\n<link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="manifest" href="manifest.webmanifest">\n<link rel="stylesheet" href="'+FONT+'">\n'
     +'<style id="css">'+css+'</style>\n<template id="src">'+srcEl.innerHTML+'</template>\n<div id="root"></div>\n'
     +'<script id="state" type="application/json">'+json+'<\/script>\n<script id="app">'+app+'<\/script>\n</body></html>';
 }

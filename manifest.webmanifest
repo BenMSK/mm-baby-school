@@ -1,0 +1,16 @@
+{
+  "name": "M&M 육아 학교",
+  "short_name": "육아 학교",
+  "description": "출산 후 아빠 할 일과 생후 0–12개월 육아 2주 코스",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFF8F1",
+  "theme_color": "#F2857A",
+  "lang": "ko",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
